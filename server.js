@@ -8,21 +8,29 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
+const db = require("./db");
+const cookieSession = require("cookie-session");
 
-// PG database client/connection setup
-const { Pool } = require("pg");
-const dbParams = require("./lib/db.js");
-const db = new Pool(dbParams);
+// connect to database
 db.connect();
 
-// Load the logger first so all (static) HTTP requests are logged to STDOUT
-// 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+// cookie session init
+app.use(
+  cookieSession({
+    name: "session",
+    keys: [
+      process.env.MY_SECRET_KEY || "mySecretKey",
+      process.env.MY_SECRET_KEY_2 || "mySecretKey2",
+    ],
+  })
+);
+
+// colors for logging the endPoints
 app.use(morgan("dev"));
 
+// this is for ejs layouts
 app.use(expressLayouts);
 app.set("layout", "./layouts");
-
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
@@ -35,20 +43,15 @@ app.use(
   })
 );
 
+// this is the assets folder
 app.use(express.static("public"));
 
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
-
-// Mount all resource routes
-app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+// This is our Routes for our apis
+app.use("/api/auth", require("./routes/api/auth/authRoutes"));
 
 // This is our Routes for all the pages
 app.use("/", require("./routes/view/viewRoutes"));
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`elf App is listening on port ${PORT}`);
 });
