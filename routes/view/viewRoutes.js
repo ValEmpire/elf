@@ -25,6 +25,10 @@ router.get("/feed", (req, res) => {
   res.render("pages/feed");
 });
 
+router.get("/dashboard", (req, res) => {
+  res.render("pages/dashboard");
+});
+
 router.get("/createad", (req, res) => {
   res.render("pages/createAd");
 });
