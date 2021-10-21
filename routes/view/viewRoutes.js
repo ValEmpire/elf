@@ -10,14 +10,10 @@ router.get("/", (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  // start the cookie session
-
   res.render("pages/login");
 });
 
 router.get("/signup", (req, res) => {
-  // start the cookie session
-
   res.render("pages/signup");
 });
 
@@ -43,7 +39,6 @@ router.get("/favorite", (req, res) => {
 
 router.get("/logout", (req, res) => {
   // remove the cookie session
-
   res.redirect("/");
 });
 
