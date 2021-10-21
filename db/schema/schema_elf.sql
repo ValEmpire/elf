@@ -29,6 +29,7 @@ CREATE TABLE ads (
   created_at DATE NOT NULL,
   updated_at DATE NOT NULL,
   laptop_image_id INTEGER REFERENCES laptop_images(id) ON DELETE CASCADE,
+
 );
 
 CREATE TABLE laptop_images (
@@ -45,7 +46,8 @@ CREATE TABLE users (
   email VARCHAR(225) NOT NULL,
   password VARCHAR (225) NOT NULL,
   contact_phone VARCHAR(15) NOT NULL,
-  phopo_url VARCHAR(2000)
+  photo_url VARCHAR(2000),
+  is_admin BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE user_favorites (
