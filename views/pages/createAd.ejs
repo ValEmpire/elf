@@ -1,1 +1,47 @@
 <h1>This is the create Ad page where sellers are!</h1>
+<div class="col-md-4">
+  <label for="exampleFormControlInput1" class="form-label">Title</label>
+  <input type="title" class="form-control" id="exampleFormControlInput1" placeholder="title">
+</div>
+<div class="col-md-4">
+  <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+<div class="col-sm-10">
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="not featured" checked>
+    <label class="form-check-label" for="gridRadios1">
+      Not Featured
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="featured">
+    <label class="form-check-label" for="gridRadios2">
+      Faetured
+    </label>
+  </div>
+</div>
+<div class="col-md-4">
+  <label for="inputStatus" class="form-label">Status</label>
+  <select id="inputStatus" class="form-select">
+    <option selected>Active</option>
+    <option value="not active">Not active</option>
+    <option value="sold">Sold</option>
+  </select>
+</div>
+
+<!-- UPLOAD PHOTO -->
+<div class="col-md-4">
+  <label for="exampleInputPhoto1" class="form-label">Photo1</label>
+  <input type="photo" class="form-control" id="exampleInputPhoto1">
+  <label for="exampleInputPhoto2" class="form-label">Photo2</label>
+  <input type="photo" class="form-control" id="exampleInputPhoto2">
+  <label for="exampleInputPhoto3" class="form-label">Photo3</label>
+  <input type="password" class="form-control" id="exampleInputPhoto3">
+</div>
+<div class="mb-3 form-check">
+  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+<button type="cancel" class="btn btn-link">Cancel</button>
