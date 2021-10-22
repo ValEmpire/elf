@@ -29,9 +29,9 @@ app.use(
 app.use(morgan("dev"));
 
 // this is for ejs layouts
+app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layouts");
-app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 app.use(

@@ -4,46 +4,91 @@
 
 const express = require("express");
 const router = express.Router();
+const {
+  protectRoute,
+  authPageRoute,
+  publicRoute,
+} = require("../../middlewares");
 
-router.get("/", (req, res) => {
-  res.render("pages");
+// PROTECTED PAGES
+router.get("/dashboard", protectRoute, (req, res) => {
+  const user = req.user;
+
+  res.render("pages/dashboard", {
+    user,
+  });
 });
 
-router.get("/login", (req, res) => {
-  res.render("pages/login");
+router.get("/createad", protectRoute, (req, res) => {
+  const user = req.user;
+
+  res.render("pages/createAd", {
+    user,
+  });
 });
 
-router.get("/signup", (req, res) => {
-  res.render("pages/signup");
+router.get("/message", protectRoute, (req, res) => {
+  const user = req.user;
+
+  res.render("pages/message", {
+    user,
+  });
 });
 
-router.get("/feed", (req, res) => {
-  res.render("pages/feed");
+router.get("/favorite", protectRoute, (req, res) => {
+  const user = req.user;
+
+  res.render("pages/favorite", {
+    user,
+  });
 });
 
-router.get("/dashboard", (req, res) => {
-  res.render("pages/dashboard");
+// PUBLIC PAGES
+router.get("/", publicRoute, (req, res) => {
+  const user = req.user;
+
+  res.render("pages", {
+    title: "Hello",
+    user,
+  });
 });
 
-router.get("/createad", (req, res) => {
-  res.render("pages/createAd");
+router.get("/feed", publicRoute, (req, res) => {
+  const user = req.user;
+
+  res.render("pages/feed", {
+    user,
+  });
 });
 
-router.get("/message", (req, res) => {
-  res.render("pages/message");
+// AUTHENTICATED PAGES
+router.get("/login", authPageRoute, (req, res) => {
+  const user = req.user;
+
+  res.render("pages/login", {
+    user,
+  });
 });
 
-router.get("/favorite", (req, res) => {
-  res.render("pages/favorite");
+router.get("/signup", authPageRoute, (req, res) => {
+  const user = req.user;
+
+  res.render("pages/signup", {
+    user,
+  });
 });
 
 router.get("/logout", (req, res) => {
   // remove the cookie session
-  res.redirect("/");
+  req.session = null;
+
+  console.log(`cookie, ${req.session}`);
+
+  res.redirect("/login");
 });
 
-router.get("*", (req, res) => {
-  res.render("pages/404");
-});
+// router.get("*", (req, res) => {
+//   res.render("pages/404");
+// });
 
 module.exports = router;
