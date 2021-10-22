@@ -7,7 +7,12 @@ const router = express.Router();
 const user = require("../../../db");
 const bcrypt = require("bcrypt");
 
-router.post("/signup", async (req, res) => {});
+router.post("/signup", async (req, res) => {
+  try{
+    const { name, email, passwprd} = trq.body;
+    
+  }
+});
 
 router.post("/login", async (req, res) => {
   try {
