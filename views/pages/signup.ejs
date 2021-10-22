@@ -1,37 +1,38 @@
 <h1>This is the signup page!</h1>
-<form>
+<div>
   <div class="col-md-4">
     <label for="exampleInputName1" class="form-label">Name</label>
-    <input type="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
+    <input id="nameFormField" type="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
     <div id="nameHelp" class="form-text">Pleas enter your name.</div>
   </div>
   <div class="col-md-4">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input id="emailFormField" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="col-md-4">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input id="passwordFormField" type="password" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="col-md-4">
     <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input id="confirmPasswordFormField" type="password" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="col-md-4">
     <label for="exampleInputPhone1" class="form-label">Phone</label>
-    <input type="phone" class="form-control" id="exampleInputPhone1" aria-describedby="phoneHelp">
+    <input id="contactPhoneFormField" type="phone" class="form-control" id="exampleInputPhone1" aria-describedby="phoneHelp">
     <div id="phoneHelp" class="form-text">We'll never share your phone with anyone else.</div>
   </div>
-  <label for="basic-url" class="form-label">Your photo URL</label>
+  <!-- <label for="basic-url" class="form-label">Your photo URL</label> -->
+  <input id="userPhotoURL" type="hidden" class="form-control" id="exampleInputPassword1">
   <div class="col-md-4">
-    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+    <input id="user-photo-url" type="text" class="form-control"  aria-describedby="basic-addon3"
       placeholder="https://example.com/users/">
   </div>
   <div class="mb-3 form-check"></div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button id="signupFormSubmit" type="submit" class="btn btn-primary">Submit</button>
   <button type="cancel" class="btn btn-link">Cancel</button>
-</form>
+</div>
 
 
 <script>
@@ -39,7 +40,9 @@
     const name = $("#nameFormField").val();
     const email = $("#emailFormField").val();
     const password = $("#passwordFormField").val();
-    const
+    const confirmPassword = $("#confirmPasswordFormField").val();
+    const contact_phone = $('#contactPhoneFormField').val();
+    const userPhotoURL = $('#user-photo-url').val();
 
       $.post(
         "/api/auth/signup",
@@ -47,6 +50,8 @@
           name,
           email,
           password,
+          contact_phone,
+          // userPhotoURL,
         },
         function (data) {
           console.log(data);
