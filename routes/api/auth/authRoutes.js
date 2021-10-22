@@ -7,7 +7,38 @@ const router = express.Router();
 const user = require("../../../db");
 const bcrypt = require("bcrypt");
 
-router.post("/signup", async (req, res) => {});
+router.post("/signup", async (req, res) => {
+  try{
+    const { name, email, password, contact_phone } = req.body;
+
+    const hashPassword = bcrypt.hashSync(password, 12);
+
+    const query = `INSERT INTO users (name, email, password, contact_phone)
+    VALUES ( $1, $2, $3, $4 )`;
+    
+    const params = [name, email, hashPassword, contact_phone];
+
+    // validate all params
+    // loops
+
+    const response = await user.query(query, params);
+
+    // start the session
+    req.session.userID = user.id;
+
+    return res.status(200).json({
+      saccess: true,
+      response,
+    });
+
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      success: false,
+      response: err.message,
+    })
+  }
+});
 
 router.post("/login", async (req, res) => {
   try {
