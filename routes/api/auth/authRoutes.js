@@ -7,6 +7,54 @@ const router = express.Router();
 const user = require("../../../db");
 const bcrypt = require("bcrypt");
 
+router.post("/createAd", async (req, res) => {
+  try {
+    const {
+      title,
+      description,
+      brand_name,
+      screen_size,
+      condition,
+      memory,
+      price,
+      storage_size,
+      storage_type,
+    } = req.boby;
+
+    laptopQuery = `INSEART INTO laptops (brand_name, screen_size, condition, memory, price, storage_size, storage_type)
+    VALUES ( $1, $2, $3, $4, $5, $6, $7)`
+    laptopParams = []
+    
+
+    const res1 = await laptop.query();
+
+    const adQuery = `INSERT INTO ads (laptop_id, title, description, is_featured, status)
+    VALUES ( $1, $2, $3, $4 ) RETURNING id`;
+
+    const adParams = [title, res1, description, isFeatured, status];
+
+    for (let param of adParams) {
+      if (!param) {
+        throw new Error('Please fill all fields')
+      }
+    }
+
+    const response = await user.query(adQuery, adParams)
+
+    return res.status(200).json({
+      saccess: true,
+      response,
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      saccess: false,
+      response: err.message,
+    });
+  }
+});
+
+
 router.post("/signup", async (req, res) => {
   try {
     const { name, email, password, contact_phone } = req.body;
@@ -20,6 +68,11 @@ router.post("/signup", async (req, res) => {
 
     // validate all params
     // loops
+    for (let param of params) {
+      if (!param) {
+        throw new Error('Please fill all fields')
+      }
+    }
 
     const response = await user.query(query, params);
 
