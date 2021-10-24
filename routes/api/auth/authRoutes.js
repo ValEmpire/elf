@@ -9,6 +9,7 @@ const bcrypt = require("bcrypt");
 const { format } = require("morgan");
 const laptop = require("../../../db");
 const ads = require("../../../db");
+
 router.post("/createAd", async (req, res) => {
   try {
     const {
@@ -25,30 +26,43 @@ router.post("/createAd", async (req, res) => {
 
     for (let val of Object.values(req.body)) {
       if (!val) {
-        throw new Error('Please fill all fields')
+        throw new Error("Please fill all fields");
       }
     }
 
-  
     laptopQuery = `INSERT INTO laptops (brand_name, screen_size, condition, memory, price, storage_size, storage_type)
-    VALUES ( $1, $2, $3, $4, $5, $6, $7) RETURNING id`
+    VALUES ( $1, $2, $3, $4, $5, $6, $7) RETURNING id`;
 
-    laptopParams = [brand_name, screen_size, condition, memory, price, storage_size, storage_type]
-
+    laptopParams = [
+      brand_name,
+      screen_size,
+      condition,
+      memory,
+      price,
+      storage_size,
+      storage_type,
+    ];
 
     const res1 = await laptop.query(laptopQuery, laptopParams);
 
     const adQuery = `INSERT INTO ads (laptop_id, user_id, title, description, created_at, updated_at)
     VALUES ( $1, $2, $3, $4, $5, $6 ) RETURNING id`;
 
-    const userId = req.session.userID
+    const userId = req.session.userID;
     const created_at = new Date();
     const updated_at = new Date();
     console.log(res1);
 
-    const adParams = [res1.rows[0].id, userId, title, description, created_at, updated_at];
+    const adParams = [
+      res1.rows[0].id,
+      userId,
+      title,
+      description,
+      created_at,
+      updated_at,
+    ];
 
-    const response = await ads.query(adQuery, adParams)
+    const response = await ads.query(adQuery, adParams);
 
     return res.status(200).json({
       saccess: true,
@@ -76,7 +90,7 @@ router.post("/signup", async (req, res) => {
 
     for (let param of params) {
       if (!param) {
-        throw new Error('Please fill all fields')
+        throw new Error("Please fill all fields");
       }
     }
 
