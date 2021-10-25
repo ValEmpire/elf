@@ -32,6 +32,7 @@ app.use(morgan("dev"));
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layouts");
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(
@@ -49,6 +50,7 @@ app.use(express.static("public"));
 // This is our Routes for our apis
 app.use("/api/auth", require("./routes/api/auth/authRoutes"));
 app.use("/api/ad", require("./routes/api/ad/adRoutes"));
+app.use("/api/laptopImage", require("./routes/api/laptopImage/laptopImageRoutes"));
 
 // This is our Routes for all the pages
 app.use("/", require("./routes/view/viewRoutes"));
