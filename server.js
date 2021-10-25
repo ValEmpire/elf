@@ -48,6 +48,7 @@ app.use(express.static("public"));
 
 // This is our Routes for our apis
 app.use("/api/auth", require("./routes/api/auth/authRoutes"));
+app.use("/api/ad", require("./routes/api/ad/adRoutes"));
 
 // This is our Routes for all the pages
 app.use("/", require("./routes/view/viewRoutes"));
