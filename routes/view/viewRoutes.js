@@ -62,7 +62,7 @@ router.get("/feed", publicRoute, (req, res) => {
 });
 
  // about page
- router.get('/about', function(req, res) {
+ router.get('/about', publicRoute, (req, res) => {
   const user = req.user;
   res.render('pages/about' , {
     user,
