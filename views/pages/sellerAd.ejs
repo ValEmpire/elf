@@ -1,0 +1,30 @@
+<h1>This is where the seller see his single ad.</h1>
+
+<h3>
+  Please query the ads join laptop and laptop images where ad.user_id = <%=
+  locals.user.id %> and ad.id = <%=locals.ad_id %>
+</h3>
+
+<h4>Render the return data here.</h4>
+
+<!-- UPLOAD IMAGES -->
+<div>
+  <fieldset class="form-group">
+    <a href="javascript:void(0)" onclick="$('#pro-image').click()"
+      >Select images</a
+    >
+    <input
+      type="file"
+      id="pro-image"
+      name="pro-image"
+      style="display: none"
+      class="form-control"
+      multiple
+      accept="image/png, image/gif, image/jpeg"
+    />
+  </fieldset>
+  <div class="preview-images-zone"></div>
+  <div class="mt-3 text-center">
+    <button id="uploadImageBtn" class="btn btn-success" disabled>Upload</button>
+  </div>
+</div>

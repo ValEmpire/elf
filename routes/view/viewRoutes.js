@@ -20,6 +20,16 @@ router.get("/dashboard", protectRoute, (req, res) => {
   });
 });
 
+router.get("/dashboard/:id", protectRoute, (req, res) => {
+  const user = req.user;
+  const ad_id = req.params.id;
+
+  res.render("pages/sellerAd", {
+    user,
+    ad_id,
+  });
+});
+
 router.get("/createad", protectRoute, (req, res) => {
   const user = req.user;
 
@@ -49,7 +59,6 @@ router.get("/", publicRoute, (req, res) => {
   const user = req.user;
 
   res.render("pages", {
-    title: "Hello",
     user,
   });
 });
@@ -61,6 +70,18 @@ router.get("/feed", publicRoute, (req, res) => {
   });
 });
 
+
+router.get("/feed/:id", publicRoute, (req, res) => {
+  const user = req.user;
+
+  const ad_id = req.params.id;
+
+  res.render("pages/ad", {
+    ad_id,
+    user,
+  });
+});
+
  // about page
  router.get('/about', publicRoute, (req, res) => {
   const user = req.user;
@@ -68,7 +89,6 @@ router.get("/feed", publicRoute, (req, res) => {
     user,
  });
 });
-
 
 // AUTHENTICATED PAGES
 router.get("/login", authPageRoute, (req, res) => {
