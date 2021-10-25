@@ -2,6 +2,7 @@
  * All routes for Pages are defined here
  */
 
+const { application } = require("express");
 const express = require("express");
 const router = express.Router();
 const {
@@ -55,11 +56,19 @@ router.get("/", publicRoute, (req, res) => {
 
 router.get("/feed", publicRoute, (req, res) => {
   const user = req.user;
-
   res.render("pages/feed", {
     user,
   });
 });
+
+ // about page
+ router.get('/about', publicRoute, (req, res) => {
+  const user = req.user;
+  res.render('pages/about' , {
+    user,
+ });
+});
+
 
 // AUTHENTICATED PAGES
 router.get("/login", authPageRoute, (req, res) => {
