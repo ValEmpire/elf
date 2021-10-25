@@ -18,8 +18,11 @@ router.post("/signup", async (req, res) => {
 
     const params = [name, email, hashPassword, contact_phone];
 
-    // validate all params
-    // loops
+    for (let param of params) {
+      if (!param) {
+        throw new Error('Please fill all fields')
+      }
+    }
 
     const response = await user.query(query, params);
 

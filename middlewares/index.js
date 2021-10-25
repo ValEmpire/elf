@@ -72,4 +72,21 @@ const publicRoute = async (req, res, next) => {
   }
 };
 
-module.exports = { protectRoute, isAuthUser, authPageRoute, publicRoute };
+const protectAPI = async (req, res, next) => {
+  try {
+    const userID = req.session["userID"];
+
+    if (!userID) {
+      throw Error("Only authenticated users can go through this api.");
+    }
+
+    next();
+
+  } catch (err) {
+    return res.status(400).json({
+      err
+    });
+  }
+}
+
+module.exports = { protectRoute, isAuthUser, authPageRoute, publicRoute, protectAPI };

@@ -1,1 +1,95 @@
 <h1>This is the create Ad page where sellers are!</h1>
+
+<div class="col-md-4">
+  <label for="brandFormField" class="form-label">Brand</label>
+  <input id="brandFormField" type="brand" class="form-control" placeholder="Specify brand of your laptop" />
+</div>
+<br>
+<div class="col-md-4">
+  <label for="exampleFormControlInput1" class="form-label">Screen Size</label>
+  <input id="screenSizeFormField" type="screenSize" class="form-control"
+    placeholder="Specify the screen size in inches" />
+</div>
+<br>
+<div class="col-md-4">
+  <label for="inputCondition" class="form-label">Condition</label>
+  <select id="inputCondition" class="form-select">
+    <option selected>fair</option>
+    <option value="like new">like new</option>
+    <option value="good">good</option>
+  </select>
+</div>
+<br>
+<div class="col-md-4">
+  <label for="exampleFormControlInput1" class="form-label">Memory</label>
+  <input id="memoryFormField" type="memory" class="form-control" placeholder="" />
+</div>
+<br>
+<div class="col-md-4">
+  <label for="exampleFormControlInput1" class="form-label">Price</label>
+  <input id="priceFormField" type="price" class="form-control" placeholder="$0.00" />
+  <br>
+  <div class="row-md-4">
+    <label for="exampleFormControlInput1" class="form-label">Storage Size</label>
+    <input id="storageSizeFormField" type="storageSize" class="form-control" placeholder="" />
+  </div>
+  <br>
+  <div class="col-md-4">
+    <label for="inputStorageType" class="form-label">Storage Type</label>
+    <select id="inputStorageType" class="form-select">
+      <option selected>HHD</option>
+      <option value="ssd">SSD</option>
+      <option value="hybrid">Hybrid</option>
+      <option value="emmc">eMMC</option>
+    </select>
+  </div>
+  <br>
+  <div class="row-md-4">
+    <label for="exampleFormControlInput1" class="form-label">Title</label>
+    <input id="titleFormField" type="title" class="form-control" placeholder="title" />
+  </div>
+  <br>
+  <div class="row-md-4">
+    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+    <textarea id="descriptionFormField" class="form-control" rows="3">
+</textarea>
+  </div>
+  <br>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button id="create-new-ad-form-submit" type="submit" class="btn btn-primary">Submit</button>
+  <button type="cancel" class="btn btn-link">Cancel</button>
+
+  <script>
+    $("#create-new-ad-form-submit").click(function () {
+      const brand_name = $('#brandFormField').val();
+      const screen_size = $('#screenSizeFormField').val();
+      const condition = $('#inputCondition option:selected').val();
+      const memory = $('#memoryFormField').val();
+      const price = $('#priceFormField').val();
+      const storage_size = $('#storageSizeFormField').val();
+      const storage_type = $('#inputStorageType option:selected').val();
+      const title = $("#titleFormField").val();
+      const description = $("#descriptionFormField").val();
+
+      $.post(
+        "/api/ad",
+        {
+          brand_name,
+          screen_size,
+          condition,
+          memory,
+          price,
+          storage_size,
+          storage_type,
+          title,
+          description,
+        },
+        function (data) {
+          window.location.replace("/upload_images");
+        }
+      );
+    });
+  </script>
