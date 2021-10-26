@@ -54,6 +54,14 @@ router.get("/favorite", protectRoute, (req, res) => {
   });
 });
 
+router.get("/upload_images", protectRoute, (req, res) => {
+  const user = req.user;
+
+  res.render("pages/upload_images", {
+    user,
+  });
+});
+
 // PUBLIC PAGES
 router.get("/", publicRoute, (req, res) => {
   const user = req.user;

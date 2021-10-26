@@ -49,7 +49,7 @@ router.post("/", protectAPI, async (req, res) => {
     const userId = req.session.userID;
     const created_at = new Date();
     const updated_at = new Date();
-    console.log(res1);
+   
 
     const adParams = [
       res1.rows[0].id,
@@ -96,16 +96,16 @@ router.get("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    // we will make sure that only the user who created the ads can delete his own ads
-    if (res.rows[0].user_id !== req.session.userID) {
-      throw new Error("You are not allowed.");
-    }
-    const deleteAdQuery = `DELETE FROM ads WHERE ads.id = $1`;
+    console.log(req.params)
+    
+   
+    const deleteAdQuery = `DELETE FROM ads WHERE ads.id = $1 AND user_id = $2`;
 
-    const deleteAdPapams = [id];
-
+    const deleteAdPapams = [id, req.session.userID];
+    
     await ads.query(deleteAdQuery, deleteAdPapams);
-    // return if successful
+
+       // return if successful
     return res.status(200).json({
       success: true,
     });

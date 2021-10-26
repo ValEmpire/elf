@@ -14,7 +14,7 @@ router.post("/", protectAPI, async (req, res) => {
   try {
     const { adId } = req.body;
 
-    console.log(req.body)
+   
     // query user favorites where user_id is same as req.session.userID join ads on ads.id = user_favorites.ad_id;
 
     const favorQuery = `SELECT ads.* FROM ads
@@ -76,7 +76,7 @@ router.get("/", protectAPI, async (req, res) => {
   JOIN laptops ON ads.laptop_id = laptops.id
   JOIN laptop_images ON ads.laptop_image_id = laptop_images.id
   JOIN user_favorites ON ads.id = user_favorites.ad_id
-  WHERE ads.user_id = $1`  
+  WHERE user_favorites.user_id = $1`  
 
   const params = [req.session.userID];
   
@@ -86,7 +86,7 @@ router.get("/", protectAPI, async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      response,
+      response: response.rows,
     });
 
   } catch (err) {
