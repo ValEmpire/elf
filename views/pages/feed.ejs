@@ -1,1 +1,515 @@
-<h1>THis is the Feed page where buyers are!</h1>
+<div class="container-fluid h-100 text-dark p-4">
+  <div class="card mb-3">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="/images/lenovo.png" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body bg-light">
+          <h5 class="card-title">ELF’s better when you’re a member</h5>
+          <p class="card-text">
+            See more relevant listings, find what you’re looking for quicker, and more!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+<div class="container p-4">
+  <div class="row">
+    <div class="col-sm-4 col-md-3">
+      <form>
+        <div class="well">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search products...">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+<br/>
+      <!-- Filter -->
+      <form class="shop__filter">
+        <!-- Price -->
+        <h4 class="headline">
+          <span>Price</span>
+        </h4>
+        <div class="radio">
+          <input type="radio" name="shop-filter__price" id="shop-filter-price_1" value="" checked="">
+          <label for="shop-filter-price_1">Under $100</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="shop-filter__price" id="shop-filter-price_2" value="">
+          <label for="shop-filter-price_2">$100 to $250</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="shop-filter__price" id="shop-filter-price_3" value="">
+          <label for="shop-filter-price_3">$250 to $500</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="shop-filter__price" id="shop-filter-price_3" value="">
+          <label for="shop-filter-price_3">$500 to $750</label>
+        </div>
+         <div class="radio">
+          <input type="radio" name="shop-filter__price" id="shop-filter-price_3" value="">
+          <label for="shop-filter-price_3">Above $1000</label>
+        </div>
+
+        <div class="form-group shop-filter__price">
+          <div class="row">
+            <div class="col-xs-4">
+              <label for="shop-filter-price_from" class="sr-only"></label>
+              <input id="shop-filter-price_from" type="number" min="0" class="form-control" placeholder="Min">
+            </div>
+            <div class="col-xs-4">
+              <label for="shop-filter-price_to" class="sr-only"></label>
+              <input id="shop-filter-price_to" type="number" min="0" class="form-control" placeholder="Max">
+            </div>
+            <div class="col-xs-4 pt-2">
+              <button type="submit" class="btn btn-secondary btn-sm">Apply Price Range</button>
+            </div>
+            <div class="form-check pt-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+              <label class="form-check-label" for="flexCheckDefault1">$2000 & Up</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkboxes -->
+        <h4 class="headline">
+          <span>Brand</span>
+        </h4>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+          <label class="form-check-label" for="flexCheckDefault1">Acer</label>
+        </div>
+        <div class="form-check">
+          <input  class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+          <label class="form-check-label" for="flexCheckDefault2">Alienware</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+          <label class="form-check-label" for="flexCheckDefault3">Apple</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+          <label class="form-check-label" for="flexCheckDefault4">Asus</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+          <label class="form-check-label" for="flexCheckDefault5">Dell</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+          <label class="form-check-label" for="flexCheckDefault6">Fujitsu</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+          <label class="form-check-label" for="flexCheckDefault6">Gateway</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault7">
+          <label class="form-check-label" for="flexCheckDefault7">Gigabyte</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault8">
+          <label class="form-check-label" for="flexCheckDefault8">Google</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault8">
+          <label class="form-check-label" for="flexCheckDefault8">HP</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault8">
+          <label class="form-check-label" for="flexCheckDefault8">LG</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault9">
+          <label class="form-check-label" for="flexCheckDefault9">Lenovo</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault9">
+          <label class="form-check-label" for="flexCheckDefault9">MSI</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault10">
+          <label class="form-check-label" for="flexCheckDefault10">Microsoft</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault11">
+          <label class="form-check-label" for="flexCheckDefault11">Panasonic</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault12">
+          <label class="form-check-label" for="flexCheckDefault12">Razor</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault13">
+          <label class="form-check-label" for="flexCheckDefault13">Samsung</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault14">
+          <label class="form-check-label" for="flexCheckDefault14">Sony</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault15">
+          <label class="form-check-label" for="flexCheckDefault15">Toshiba</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault16">
+          <label class="form-check-label" for="flexCheckDefault16">Other(Specify)</label>
+        </div>
+        <br>
+
+        <!-- Checkboxes -->
+        <h4 class="headline">
+          <span>Screen Size</span>
+        </h4>
+        <div class="form-check ">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+          <label class="form-check-label" for="flexCheckDefault1">12 Inches and Smaller</label>
+        </div>
+        <div class="form-check">
+          <input  class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+          <label class="form-check-label" for="flexCheckDefault2">13 Inches</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+          <label class="form-check-label" for="flexCheckDefault3">14 Inches</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+          <label class="form-check-label" for="flexCheckDefault4">15 Inches</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+          <label class="form-check-label" for="flexCheckDefault5">16 Inches</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+          <label class="form-check-label" for="flexCheckDefault6">17 Inches</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault7">
+          <label class="form-check-label" for="flexCheckDefault7">18 Inches and Larger</label>
+        </div>
+        <br>
+
+        <!-- CheckBoxes -->
+        <h4 class="headline">
+          <span>Memory</span>
+        </h4>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+          <label class="form-check-label" for="flexCheckDefault1">4</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+          <label class="form-check-label" for="flexCheckDefault2">6</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+          <label class="form-check-label" for="flexCheckDefault3">8</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+          <label class="form-check-label" for="flexCheckDefault4">12</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+          <label class="form-check-label" for="flexCheckDefault5">14</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+          <label class="form-check-label" for="flexCheckDefault6">16</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault7">
+          <label class="form-check-label" for="flexCheckDefault7">20</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault8">
+          <label class="form-check-label" for="flexCheckDefault8">24</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault9">
+          <label class="form-check-label" for="flexCheckDefault9">32</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault10">
+          <label class="form-check-label" for="flexCheckDefault10">36</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault11">
+          <label class="form-check-label" for="flexCheckDefault11">40</label>
+        </div>
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault12">
+          <label class="form-check-label" for="flexCheckDefault12">48</label>
+        </div>
+
+        <div class="form-check">
+          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault13">
+          <label class="form-check-label" for="flexCheckDefault13">64</label>
+        </div>
+        <br>
+
+        <!-- Checkboxes -->
+        <h4 class="headline">
+          <span>Storage Size</span>
+        </h4>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+          <label class="form-check-label" for="flexCheckDefault1">Less than 128GB</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+          <label class="form-check-label" for="flexCheckDefault2">128GB - 255.9GB</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+          <label class="form-check-label" for="flexCheckDefault3">256 GB - 511.9 GB</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+          <label class="form-check-label" for="flexCheckDefault4">512 GB - 749.9 GB</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+          <label class="form-check-label" for="flexCheckDefault5">750 GB - 999.9 GB</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+          <label class="form-check-label" for="flexCheckDefault6">1 TB - 1.9 TB</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7">
+          <label class="form-check-label" for="flexCheckDefault7">2 TB - 2.9 TB</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault8">
+          <label class="form-check-label" for="flexCheckDefault8">3 TB - 3.9 TB</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault9">
+          <label class="form-check-label" for="flexCheckDefault9">4 TB and Higher</label>
+        </div>
+        <br>
+
+        <!-- Checkboxes -->
+        <h4 class="headline">
+          <span>Storage Type</span>
+        </h4>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+          <label class="form-check-label" for="flexCheckDefault1">Hybrid Drive</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+          <label class="form-check-label" for="flexCheckDefault2">Solid State Drive(SSD)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+          <label class="form-check-label" for="flexCheckDefault3">Hard Disk Drive(HDD)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+          <label class="form-check-label" for="flexCheckDefault4">Embedded Multi-Media Card(eMMc)</label>
+        </div>
+        <br>
+
+        <!-- Radio button -->
+        <h4 class="headline">
+          <span>Condition</span>
+        </h4>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            New
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2">
+            Open Box
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+          <label class="form-check-label" for="flexRadioDefault3">
+            Refurbished
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+          <label class="form-check-label" for="flexRadioDefault4">
+            Used
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+          <label class="form-check-label" for="flexRadioDefault5">
+            For parts or not working
+          </label>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-sm-8 col-md-9">
+      <!-- Filters -->
+      <ul class="shop__sorting">
+        <li class="active"><a href="#">Popular</a></li>
+        <li><a href="#">Newest</a></li>
+        <li><a href="#">Bestselling</a></li>
+        <li><a href="#">Price (low)</a></li>
+        <li><a href="#">Price (high)</a></li>
+      </ul>
+
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="https://via.placeholder.com/400x400/87CEFA/000000" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">
+                Product Title
+              </h5>
+              <div class="shop-thumb__price">
+                $10000
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">
+                Product Title
+              </h5>
+              <div class="shop-thumb__price">
+                $10000
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="https://via.placeholder.com/400x400/FFB6C1/000000" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">
+                Product Title
+              </h5>
+              <div class="shop-thumb__price">
+                $10000
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="https://via.placeholder.com/400x400/87CEFA/000000" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">
+                Product Title
+              </h5>
+              <div class="shop-thumb__price">
+                $10000
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="https://via.placeholder.com/400x400/FFA07A/000000" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">
+                Product Title
+              </h5>
+              <div class="shop-thumb__price">
+                $10000
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="https://via.placeholder.com/400x400/48D1CC/000000" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">
+                Product Title
+              </h5>
+              <div class="shop-thumb__price">
+                $10000
+              </div>
+            </a>
+          </div>
+        </div>
+      </div> <!-- / .row -->
+
+      <!-- Pagination -->
+      <div class="row">
+        <div class="col-sm-12">
+          <nav aria-label="...">
+            <ul class="pagination justify-content-end">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+                </a>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+                </a>
+            </ul>
+          </nav>
+        </div>
+      </div> <!-- / .row -->
+
+    </div> <!-- / .col-sm-8 -->
+  </div> <!-- / .row -->
+</div>
+</div>
