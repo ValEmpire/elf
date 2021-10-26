@@ -1,6 +1,18 @@
-<h1>This is the create Ad page where sellers are!</h1>
-
+<div class="container-fluid h-100 text-dark p-4">
+  <div class="row justify-content-center align-items-center">
+    <div class="container p-2">
+      <div class="row">
+        <div class="text-center">
+          <h1>Create Ad</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="container p-4 mb-4 mt-4">
+    <form class="d-flex flex-column align-items-center">
 <div class="col-md-4">
+
   <label for="brandFormField" class="form-label">Brand</label>
   <input id="brandFormField" type="brand" class="form-control" placeholder="Specify brand of your laptop" />
 </div>
@@ -14,9 +26,9 @@
 <div class="col-md-4">
   <label for="inputCondition" class="form-label">Condition</label>
   <select id="inputCondition" class="form-select">
-    <option selected>fair</option>
-    <option value="like new">like new</option>
-    <option value="good">good</option>
+    <option selected>Fair</option>
+    <option value="like new">Like new</option>
+    <option value="good">Good</option>
   </select>
 </div>
 <br>
@@ -46,7 +58,7 @@
   <br>
   <div class="row-md-4">
     <label for="exampleFormControlInput1" class="form-label">Title</label>
-    <input id="titleFormField" type="title" class="form-control" placeholder="title" />
+    <input id="titleFormField" type="title" class="form-control" placeholder="Title" />
   </div>
   <br>
   <div class="row-md-4">
@@ -59,8 +71,24 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <button id="create-new-ad-form-submit" type="submit" class="btn btn-primary">Submit</button>
-  <button type="cancel" class="btn btn-link">Cancel</button>
+  <div class="container p-4">
+    <div class="row">
+      <div class="col">
+        <div class="text-center">
+          <button
+            id="signupFormSubmit"
+            type="submit"
+            class="btn btn-success btn-sm float-left"
+          >
+            Submit
+          </button>
+          <button type="cancel" class="btn btn-link">Cancel</button
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <script>
     $("#create-new-ad-form-submit").click(function () {
