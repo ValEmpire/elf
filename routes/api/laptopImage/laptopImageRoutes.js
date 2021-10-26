@@ -28,7 +28,7 @@ router.post("/", protectAPI, async (req, res) => {
     }
 
     const response = await laptop_images.query(adsQuery, adParams);
-      if (response.rows[0].user_id !== req.session.userID) {
+    if (response.rows[0].user_id !== req.session.userID) {
       throw new Error("You not aloud.");
     }
 
@@ -41,7 +41,7 @@ router.post("/", protectAPI, async (req, res) => {
 
       const params = [response.rows[0].laptop_id, url, created_at, updated_at];
 
-    await laptop_images.query(query, params);
+      await laptop_images.query(query, params);
     }
 
     return res.status(200).json({
@@ -67,16 +67,16 @@ router.delete("/:id", protectAPI, async (req, res) => {
 
     const adParams = [id];
 
-      const response = await laptop_images.query(adsQuery, adParams);
-      if (response.rows[0].user_id !== req.session.userID) {
-      throw new Error("You not aloud.");
-    }   
+    const response = await laptop_images.query(adsQuery, adParams);
+    if (response.rows[0].user_id !== req.session.userID) {
+      throw new Error("You are not allowed.");
+    }
     const DeleteImageQuery = `DELETE FROM laptop_images WHERE id = $1`;
 
     const params = [id];
 
     await laptop_images.query(DeleteImageQuery, params);
-   
+
     return res.status(200).json({
       success: true,
     });
