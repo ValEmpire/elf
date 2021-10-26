@@ -39,7 +39,7 @@ router.post("/", protectAPI, async (req, res) => {
     const adQuery = `INSERT INTO ads (laptop_id, user_id, title, description, created_at, updated_at)
     VALUES ( $1, $2, $3, $4, $5, $6 ) RETURNING id`;
 
-    const userId = req.session.userID
+    const userId = req.session.userID;
     const created_at = new Date();
     const updated_at = new Date();
     console.log(res1);
