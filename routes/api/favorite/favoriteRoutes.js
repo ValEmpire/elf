@@ -94,7 +94,7 @@ router.get("/", protectAPI, async (req, res) => {
 
     return res.status(400).json({
       success: false,
-      response: err.message
+      response: err.message,
     });
   }
 });
