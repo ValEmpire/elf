@@ -4,6 +4,24 @@ import { storage, ref, uploadString } from "/scripts/firebase/index.js";
 // key is the number of the image
 const imageStrings = {};
 
+const laptopURLs = [];
+
+// we will call this each time the firebase returns successful
+const compileLaptopURLs = (userID, fileName) => {
+  const url = `https://firebasestorage.googleapis.com/v0/b/elf-2e2a6.appspot.com/o/${userID}%2F${fileName}.jpg?alt=media`;
+
+  laptopURLs.push(url);
+
+  return url;
+};
+
+// we will call this after successful upload in firebase storage
+const saveToDB = (urls) => {
+  return $.post("/laptop_images", { urls }, (data) => {
+    console.log(data);
+  });
+};
+
 document.getElementById("pro-image").addEventListener(
   "change",
   function readImage(e) {
@@ -74,15 +92,6 @@ $(document).on("click", ".image-cancel", function () {
   $(".preview-image.preview-show-" + no).remove();
 });
 
-// we will call this after successful upload in firebase storage
-const saveToDB = (userID, fileName) => {
-  const url = `https://firebasestorage.googleapis.com/v0/b/elf-2e2a6.appspot.com/o/${userID}%2F${fileName}.jpg?alt=media`;
-
-  return $.post("/laptop_images", { url }, (data) => {
-    console.log(data);
-  });
-};
-
 const resetUpload = async (self) => {
   setTimeout(function () {
     $(self).text("Upload");
@@ -126,9 +135,11 @@ $("#uploadImageBtn").on("click", async function () {
     // save to storage
     await uploadString(laptopsRef, base64result, "base64", metadata);
 
-    // save to postgres
-    // await saveToDB(userID, fileName);
+    compileLaptopURLs(userID, fileName);
   }
+
+  // save all the urls is postgres
+  // await saveToDB(laptopURLs);
 
   $(this).text("Success");
 
