@@ -46,7 +46,7 @@ router.post("/login", async (req, res) => {
   try {
     // get the body from request
     const { email, password } = req.body;
-
+    console.log(email, password)
     // query
     const query = `SELECT * FROM users WHERE email = $1`;
 
