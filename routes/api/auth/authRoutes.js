@@ -20,7 +20,7 @@ router.post("/signup", async (req, res) => {
 
     for (let param of params) {
       if (!param) {
-        throw new Error('Please fill all fields')
+        throw new Error("Please fill all fields");
       }
     }
 
