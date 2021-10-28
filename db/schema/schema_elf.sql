@@ -43,7 +43,7 @@ CREATE TABLE ads (
   title VARCHAR(225) NOT NULL,
   description TEXT,
   is_featured BOOLEAN NOT NULL DEFAULT FALSE,
-  status VARCHAR(225),
+  status VARCHAR(225) DEFAULT 'available',
   created_at DATE NOT NULL,
   updated_at DATE NOT NULL,
   laptop_image_id INTEGER REFERENCES laptop_images(id) ON DELETE CASCADE
