@@ -4,12 +4,20 @@
 
 const express = require("express");
 const router = express.Router();
+
 const user = require("../../../db");
 const bcrypt = require("bcrypt");
 
 router.post("/signup", async (req, res) => {
   try {
     const { name, email, password, contact_phone } = req.body;
+
+    // checking if passwords are maching
+    const checkPassword = req.body.confirmPassword;
+    if (password !== checkPassword) {
+      throw new Error("Passwords not matched");
+    }
+    
 
     const hashPassword = bcrypt.hashSync(password, 12);
 
@@ -18,10 +26,35 @@ router.post("/signup", async (req, res) => {
 
     const params = [name, email, hashPassword, contact_phone];
 
+    function validateEmail(email) {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+    }
+
     for (let param of params) {
       if (!param) {
         throw new Error("Please fill all fields");
       }
+      if (name.length < 5) {
+        throw new Error("Name sould be more then four characters");
+      }
+      if (!validateEmail(email)) {
+        throw new Error("Email is invalid");
+      }
+      if (password.length <= 7) {
+        throw new Error("Password should be more then 7 characters");
+      }
+      if (contact_phone.length < 10) {
+        throw new Error("Phone must be 10 digits long");
+      }
+    }
+
+    const checkEmailQuery = `SELECT email FROM users WHERE email = $1 `;
+    const param = [email];
+    const checkEmailres = await user.query(checkEmailQuery, param);
+    if (checkEmailres.rows.length > 0) {
+      throw new Error("Email alredy exists");
     }
 
     const response = await user.query(query, params);
@@ -46,7 +79,7 @@ router.post("/login", async (req, res) => {
   try {
     // get the body from request
     const { email, password } = req.body;
-    console.log(email, password)
+    console.log(email, password);
     // query
     const query = `SELECT * FROM users WHERE email = $1`;
 

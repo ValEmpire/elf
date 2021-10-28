@@ -21,7 +21,7 @@
               class="form-control"
               aria-describedby="nameHelp"
             />
-            <div id="nameHelp" class="form-text">Please enter your name.</div>
+            <div id="nameHelp" class="form-text">The name should be at list five characters.</div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1" class="form-label"
@@ -46,6 +46,9 @@
               type="password"
               class="form-control"
             />
+            <div id="passwordHelp" class="form-text">
+              The password should be at list seven  characters.
+            </div>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword2" class="form-label"
@@ -56,6 +59,9 @@
               type="password"
               class="form-control"
             />
+            <div id="confirmPasswordHelp" class="form-text">
+              Repeat password.
+            </div>
           </div>
           <div class="form-group">
             <label for="exampleInputPhone1" class="form-label">Phone</label>
@@ -104,6 +110,7 @@
         name,
         email,
         password,
+        confirmPassword,
         contact_phone,
         // userPhotoURL,
       },
