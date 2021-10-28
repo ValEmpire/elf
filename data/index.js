@@ -1,11 +1,6 @@
 module.exports = {
   // ad queries
-  orderBy: [
-    "Price: lowest first",
-    "Price: highest first",
-    "Posted: newest first",
-    "Posted: oldest first",
-  ],
+  orderBy: ["Price: (low)", "Price: (high)", "Newest first", "Oldest first"],
 
   orderByVal: [
     "laptops.price ASC",

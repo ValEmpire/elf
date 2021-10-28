@@ -10,114 +10,143 @@
   </div>
   <hr />
   <div class="container p-4 mb-4 mt-4">
-    <form class="d-flex flex-column align-items-center">
-<div class="col-md-4">
+    <form id="create_ad" class="d-flex flex-column align-items-center">
+      <div class="col-md-4">
+        <label for="title" class="form-label">Title</label>
+        <input
+          id="title"
+          type="text"
+          class="form-control"
+          placeholder="Title"
+        />
+      </div>
+      <br />
+      <div class="col-md-4">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" class="form-control" rows="4"></textarea>
+      </div>
+      <br />
+      <!-- BRANDS -->
+      <div class="col-md-4">
+        <label for="brand_name" class="form-label">Brand</label>
+        <select id="brand_name" class="form-select">
+          <option selected></option>
+          <!-- Populate brands -->
+          <% data.brands.forEach((brand, i) => { %>
+          <option value="<%=i%>"><%=brand%></option>
+          <% }) %>
+        </select>
+      </div>
 
-  <label for="brandFormField" class="form-label">Brand</label>
-  <input id="brandFormField" type="brand" class="form-control" placeholder="Specify brand of your laptop" />
-</div>
-<br>
-<div class="col-md-4">
-  <label for="exampleFormControlInput1" class="form-label">Screen Size</label>
-  <input id="screenSizeFormField" type="screenSize" class="form-control"
-    placeholder="Specify the screen size in inches" />
-</div>
-<br>
-<div class="col-md-4">
-  <label for="inputCondition" class="form-label">Condition</label>
-  <select id="inputCondition" class="form-select">
-    <option selected>Fair</option>
-    <option value="like new">Like new</option>
-    <option value="good">Good</option>
-  </select>
-</div>
-<br>
-<div class="col-md-4">
-  <label for="exampleFormControlInput1" class="form-label">Memory</label>
-  <input id="memoryFormField" type="memory" class="form-control" placeholder="" />
-</div>
-<br>
-<div class="col-md-4">
-  <label for="exampleFormControlInput1" class="form-label">Price</label>
-  <input id="priceFormField" type="price" class="form-control" placeholder="$0.00" />
-  <br>
-  <div class="row-md-4">
-    <label for="exampleFormControlInput1" class="form-label">Storage Size</label>
-    <input id="storageSizeFormField" type="storageSize" class="form-control" placeholder="" />
-  </div>
-  <br>
-  <div class="col-md-4">
-    <label for="inputStorageType" class="form-label">Storage Type</label>
-    <select id="inputStorageType" class="form-select">
-      <option selected>HHD</option>
-      <option value="ssd">SSD</option>
-      <option value="hybrid">Hybrid</option>
-      <option value="emmc">eMMC</option>
-    </select>
-  </div>
-  <br>
-  <div class="row-md-4">
-    <label for="exampleFormControlInput1" class="form-label">Title</label>
-    <input id="titleFormField" type="title" class="form-control" placeholder="Title" />
-  </div>
-  <br>
-  <div class="row-md-4">
-    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-    <textarea id="descriptionFormField" class="form-control" rows="3">
-</textarea>
-  </div>
-  <br>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <div class="container p-4">
-    <div class="row">
-      <div class="col">
-        <div class="text-center">
-          <button
-            id="signupFormSubmit"
-            type="submit"
-            class="btn btn-success btn-sm float-left"
-          >
-            Submit
-          </button>
-          <button type="cancel" class="btn btn-link">Cancel</button
+      <br />
+      <div class="col-md-4">
+        <label for="screenSizeFormField" class="form-label">Screen Size</label>
+        <input
+          id="screen_size"
+          type="number"
+          step=".01"
+          class="form-control"
+          placeholder="Specify the screen size in inches"
+        />
+      </div>
+      <br />
+      <div class="col-md-4">
+        <label for="condition" class="form-label">Condition</label>
+        <select id="condition" class="form-select">
+          <option selected></option>
+          <% data.conditions.forEach((condition, i) => { %>
+          <option value="<%=i%>"><%=condition%></option>
+          <% }) %>
+        </select>
+      </div>
+      <br />
+      <div class="col-md-4">
+        <label for="memory" class="form-label">Memory</label>
+        <select id="memory" class="form-select">
+          <option selected></option>
+          <% data.memorySizes.forEach((memory, i) => { %>
+          <option value="<%=i%>"><%=memory%> GB</option>
+          <% }) %>
+        </select>
+      </div>
+      <br />
+      <div class="col-md-4">
+        <label for="price" class="form-label">Price in $C</label>
+        <input
+          id="price"
+          type="number"
+          step=".01"
+          class="form-control"
+          placeholder="$0.00"
+        />
+      </div>
+      <br />
+      <div class="col-md-4">
+        <label for="storage_size" class="form-label">Storage Size in GB</label>
+        <input
+          id="storage_size"
+          type="number"
+          step=".01"
+          class="form-control"
+          placeholder=""
+        />
+      </div>
+      <br />
+      <div class="col-md-4">
+        <label for="storage_type" class="form-label">Storage Type</label>
+        <select id="storage_type" class="form-select">
+          <option selected></option>
+          <% data.storageTypes.forEach((type, i) => { %>
+          <option value="<%=i%>"><%=type%></option>
+          <% }) %>
+        </select>
+      </div>
+      <br />
+      <div class="container p-4">
+        <div class="row">
+          <div class="col">
+            <div class="text-center">
+              <button id="signupFormSubmit" class="btn btn-success btn-sm">
+                Submit
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
 
+<script>
+  $("#create_ad").on("submit", function (e) {
+    e.preventDefault();
 
-  <script>
-    $("#create-new-ad-form-submit").click(function () {
-      const brand_name = $('#brandFormField').val();
-      const screen_size = $('#screenSizeFormField').val();
-      const condition = $('#inputCondition option:selected').val();
-      const memory = $('#memoryFormField').val();
-      const price = $('#priceFormField').val();
-      const storage_size = $('#storageSizeFormField').val();
-      const storage_type = $('#inputStorageType option:selected').val();
-      const title = $("#titleFormField").val();
-      const description = $("#descriptionFormField").val();
+    const brand_name = $("#brand_name").val();
+    const screen_size = $("#screen_size").val();
+    const condition = $("#condition option:selected").val();
+    const memory = $("#memory").val();
+    const price = $("#price").val();
+    const storage_size = $("#storage_size").val();
+    const storage_type = $("#storage_type option:selected").val();
+    const title = $("#title").val();
+    const description = $("#description").val();
 
-      $.post(
-        "/api/ad",
-        {
-          brand_name,
-          screen_size,
-          condition,
-          memory,
-          price,
-          storage_size,
-          storage_type,
-          title,
-          description,
-        },
-        function (data) {
-          window.location.replace("/upload_images");
-        }
-      );
-    });
-  </script>
+    $.post(
+      "/api/ad",
+      {
+        brand_name,
+        screen_size,
+        condition,
+        memory,
+        price,
+        storage_size,
+        storage_type,
+        title,
+        description,
+      },
+      function (data) {
+        window.location.replace("/upload_images");
+      }
+    );
+  });
+</script>

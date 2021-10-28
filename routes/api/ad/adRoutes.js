@@ -15,8 +15,6 @@ const {
   status,
 } = require("../../../data");
 
-
-// Create New Ad
 router.post("/", protectAPI, async (req, res) => {
   try {
     const {
@@ -31,18 +29,26 @@ router.post("/", protectAPI, async (req, res) => {
       description,
     } = req.body;
 
-    laptopQuery = `INSERT INTO laptops (brand_name, screen_size, condition, memory, price, storage_size, storage_type)
-    VALUES ( $1, $2, $3, $4, $5, $6, $7) RETURNING id`;
+    console.log(req.body);
 
-    laptopParams = [
-      brand_name,
+    const laptopParams = [
+      brands[brand_name],
       screen_size,
-      condition,
-      memory,
+      conditions[condition],
+      memorySizes[memory],
       price,
       storage_size,
-      storage_type,
+      storageTypes[storage_type],
     ];
+
+    for (let param of laptopParams) {
+      if (!param) {
+        throw new Error("Please fill all fields");
+      }
+    }
+
+    const laptopQuery = `INSERT INTO laptops (brand_name, screen_size, condition, memory, price, storage_size, storage_type)
+    VALUES ( $1, $2, $3, $4, $5, $6, $7) RETURNING id`;
 
     const res1 = await laptop.query(laptopQuery, laptopParams);
 
@@ -78,14 +84,13 @@ router.post("/", protectAPI, async (req, res) => {
   }
 });
 
-// QUERY FOR SINGLE ADD By ads.id, NO NEED VALIDATION
+// DISPLAY SINGLE ADD
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    const query = `SELECT ads.*, laptops.* FROM ads
-                  JOIN laptops ON laptops.id = ads.laptop_id 
-                  WHERE ads.id = $1`;
+    const query = `SELECT * FROM ads
+                  WHERE id = $1`;
 
     const param = [id];
 
@@ -146,7 +151,7 @@ router.get("/", async (req, res) => {
       const insertToQueryStringBetweenFrom = (data, table, col) => {
         params.push(data);
 
-        query += `AND ${table}.${col} BETWEEN $${params.length}`;
+        query += ` AND ${table}.${col} BETWEEN $${params.length}`;
       };
 
       const insertToQueryStringBetweenTo = (data) => {
@@ -249,7 +254,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Query apdate ads
 router.put("/:id", protectAPI, async (req, res) => {
   try {
     const { id } = req.params; //adId
@@ -324,7 +328,7 @@ router.put("/:id", protectAPI, async (req, res) => {
       success: true,
     });
 
-    // we will make sure that only the user who created the ads can update his own ads
+    // we will make sure pthat only the user who created the ads can update his own ads
     // return if successful
     // throw error if not successful
   } catch (err) {
@@ -341,8 +345,6 @@ router.delete("/:id", protectAPI, async (req, res) => {
     const { id } = req.params;
 
     const deleteAdQuery = `DELETE FROM ads WHERE ads.id = $1 AND user_id = $2`;
-
-    
 
     const deleteAdPapams = [id, req.session.userID];
 
