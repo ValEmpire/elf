@@ -1,596 +1,360 @@
-<div class="container-fluid h-100 text-dark p-4">
+<div class="text-dark p-4">
   <div class="card mb-3">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="/images/lenovo.png" class="card-img" alt="...">
+        <img src="/images/lenovo.png" class="card-img" alt="..." />
       </div>
       <div class="col-md-8">
-        <div class="card-body bg-light">
+        <div class="card-body">
           <h5 class="card-title">ELF’s better when you’re a member</h5>
           <p class="card-text">
-            See more relevant listings, find what you’re looking for quicker, and more!</p>
+            See more relevant listings, find what you’re looking for quicker,
+            and more!
+          </p>
         </div>
       </div>
     </div>
   </div>
   <hr />
-<div class="container p-4">
-  <div class="row">
-    <div class="col-sm-4 col-md-3">
-      <form>
-        <div class="well">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search products...">
-                <span class="input-group-btn">
-                  <button class="btn btn-primary" type="submit">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </span>
-              </div>
-            </div>
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-sm-4 col-md-3">
+        <br />
+        <!-- Filter -->
+        <form class="shop__filter">
+          <!-- Price -->
+          <h4 class="headline">
+            <span>Price</span>
+          </h4>
+
+          <!-- Populate prices -->
+          <% data.prices.forEach((price, i) => { %>
+          <div class="form-check">
+            <input
+              class="form-check-input priceFilter"
+              type="radio"
+              name="price"
+              id="<%=`prices_filter_${i}`%>"
+              value="<%= i %>"
+            />
+            <label class="form-check-label" for="<%`prices_filter_${i}`%>">
+              <%= price %>
+            </label>
           </div>
-        </div>
-      </form>
-<br/>
-      <!-- Filter -->
-      <form class="shop__filter">
-        <!-- Price -->
-        <h4 class="headline">
-          <span>Price</span>
-        </h4>
-        <div class="radio">
-          <input type="radio" name="shop-filter__price" id="shop-filter-price_1" value="" checked="">
-          <label for="shop-filter-price_1">Under $100</label>
-        </div>
-        <div class="radio">
-          <input type="radio" name="shop-filter__price" id="shop-filter-price_2" value="">
-          <label for="shop-filter-price_2">$100 to $250</label>
-        </div>
-        <div class="radio">
-          <input type="radio" name="shop-filter__price" id="shop-filter-price_3" value="">
-          <label for="shop-filter-price_3">$250 to $500</label>
-        </div>
-        <div class="radio">
-          <input type="radio" name="shop-filter__price" id="shop-filter-price_3" value="">
-          <label for="shop-filter-price_3">$500 to $750</label>
-        </div>
-         <div class="radio">
-          <input type="radio" name="shop-filter__price" id="shop-filter-price_3" value="">
-          <label for="shop-filter-price_3">Above $1000</label>
-        </div>
-        <br>
+          <% }) %>
 
-        <!-- Checkboxes -->
-        <h4 class="headline">
-          <span>Brand</span>
-        </h4>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-          <label class="form-check-label" for="flexCheckDefault1">Acer</label>
-        </div>
-        <div class="form-check">
-          <input  class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-          <label class="form-check-label" for="flexCheckDefault2">Alienware</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-          <label class="form-check-label" for="flexCheckDefault3">Apple</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-          <label class="form-check-label" for="flexCheckDefault4">Asus</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault5">
-          <label class="form-check-label" for="flexCheckDefault5">Dell</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault6">
-          <label class="form-check-label" for="flexCheckDefault6">Fujitsu</label>
-        </div>
+          <br />
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault6">
-          <label class="form-check-label" for="flexCheckDefault6">Gateway</label>
-        </div>
+          <!-- Checkboxes -->
+          <h4 class="headline">
+            <span>Brands</span>
+          </h4>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault7">
-          <label class="form-check-label" for="flexCheckDefault7">Gigabyte</label>
-        </div>
+          <!-- Populate brands -->
+          <% data.brands.forEach((brand, i) => { %>
+          <div class="form-check">
+            <input
+              class="form-check-input brandFilter"
+              type="radio"
+              value="<%= i %>"
+              name="brand_name"
+              id="<%=`brands_filter_${i}`%>"
+            />
+            <label class="form-check-label" for="flexCheckDefault1"
+              ><%= brand %></label
+            >
+          </div>
+          <% }) %>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault8">
-          <label class="form-check-label" for="flexCheckDefault8">Google</label>
-        </div>
+          <br />
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault8">
-          <label class="form-check-label" for="flexCheckDefault8">HP</label>
-        </div>
+          <!-- Checkboxes -->
+          <h4 class="headline">
+            <span>Screen Size</span>
+          </h4>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault8">
-          <label class="form-check-label" for="flexCheckDefault8">LG</label>
-        </div>
+          <!-- Populate brands -->
+          <% data.screenSizes.forEach((size, i) => { %>
+          <div class="form-check">
+            <input
+              class="form-check-input screenSizeFilter"
+              type="radio"
+              name="screen_size"
+              value="<%= i %>"
+              id="<%=`screen_size_filter_${i}`%>"
+            />
+            <label class="form-check-label" for="flexCheckDefault1"
+              ><%= size %></label
+            >
+          </div>
+          <% }) %>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault9">
-          <label class="form-check-label" for="flexCheckDefault9">Lenovo</label>
-        </div>
+          <br />
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault9">
-          <label class="form-check-label" for="flexCheckDefault9">MSI</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault10">
-          <label class="form-check-label" for="flexCheckDefault10">Microsoft</label>
-        </div>
+          <!-- CheckBoxes -->
+          <h4 class="headline">
+            <span>Memory</span>
+          </h4>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault11">
-          <label class="form-check-label" for="flexCheckDefault11">Panasonic</label>
-        </div>
+          <% data.memorySizes.forEach((size, i) => { %>
+          <div class="form-check">
+            <input
+              class="type form-check-input memorySizeFilter"
+              type="radio"
+              name="memory"
+              value="<%= i %>"
+              id="<%=`memory_size_filter_${i}`%>"
+            />
+            <label class="form-check-label" for="flexCheckDefault1"
+              ><%= size %> GB</label
+            >
+          </div>
+          <% }) %>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault12">
-          <label class="form-check-label" for="flexCheckDefault12">Razor</label>
-        </div>
+          <br />
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault13">
-          <label class="form-check-label" for="flexCheckDefault13">Samsung</label>
-        </div>
+          <!-- Checkboxes -->
+          <h4 class="headline">
+            <span>Storage Size</span>
+          </h4>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault14">
-          <label class="form-check-label" for="flexCheckDefault14">Sony</label>
-        </div>
+          <% data.storageSizes.forEach((size, i) => { %>
+          <div class="form-check">
+            <input
+              class="form-check-input storageSizeFilter"
+              type="radio"
+              value="<%= i %>"
+              name="storage_size"
+              id="<%=`storage_size_filter_${i}`%>"
+            />
+            <label class="form-check-label" for="flexCheckDefault1"
+              ><%= size %></label
+            >
+          </div>
+          <% }) %>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault15">
-          <label class="form-check-label" for="flexCheckDefault15">Toshiba</label>
-        </div>
+          <br />
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault16">
-          <label class="form-check-label" for="flexCheckDefault16">Other(Specify)</label>
-        </div>
-        <br>
+          <!-- Checkboxes -->
+          <h4 class="headline">
+            <span>Storage Type</span>
+          </h4>
 
-        <!-- Checkboxes -->
-        <h4 class="headline">
-          <span>Screen Size</span>
-        </h4>
-        <div class="form-check ">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-          <label class="form-check-label" for="flexCheckDefault1">12 Inches and Smaller</label>
-        </div>
-        <div class="form-check">
-          <input  class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-          <label class="form-check-label" for="flexCheckDefault2">13 Inches</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-          <label class="form-check-label" for="flexCheckDefault3">14 Inches</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-          <label class="form-check-label" for="flexCheckDefault4">15 Inches</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault5">
-          <label class="form-check-label" for="flexCheckDefault5">16 Inches</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault6">
-          <label class="form-check-label" for="flexCheckDefault6">17 Inches</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault7">
-          <label class="form-check-label" for="flexCheckDefault7">18 Inches and Larger</label>
-        </div>
-        <br>
+          <% data.storageTypes.forEach((type, i) => { %>
+          <div class="form-check">
+            <input
+              class="form-check-input storageTypeFilter"
+              type="radio"
+              name="storage_type"
+              value="<%= i %>"
+              id="<%=`storage_type_filter_${i}`%>"
+            />
+            <label class="form-check-label" for="flexCheckDefault1"
+              ><%= type%></label
+            >
+          </div>
+          <% }) %>
 
-        <!-- CheckBoxes -->
-        <h4 class="headline">
-          <span>Memory</span>
-        </h4>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-          <label class="form-check-label" for="flexCheckDefault1">4 GB</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-          <label class="form-check-label" for="flexCheckDefault2">6 GB</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-          <label class="form-check-label" for="flexCheckDefault3">8 GB</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-          <label class="form-check-label" for="flexCheckDefault4">12 GB</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault5">
-          <label class="form-check-label" for="flexCheckDefault5">14 GB</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault6">
-          <label class="form-check-label" for="flexCheckDefault6">16 GB</label>
-        </div>
+          <br />
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault7">
-          <label class="form-check-label" for="flexCheckDefault7">20 GB</label>
-        </div>
+          <!-- Radio button -->
+          <h4 class="headline">
+            <span>Condition</span>
+          </h4>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault8">
-          <label class="form-check-label" for="flexCheckDefault8">24 GB</label>
-        </div>
+          <% data.conditions.forEach((condition, i) => { %>
+          <div class="form-check">
+            <input
+              class="form-check-input conditionFilter"
+              type="radio"
+              name="condition"
+              value="<%= i %>"
+              id="<%=`condition_filter_${i}`%>"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              <%= condition %>
+            </label>
+          </div>
+          <% }) %>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault9">
-          <label class="form-check-label" for="flexCheckDefault9">32 GB</label>
-        </div>
+          <div class="mt-4">
+            <button id="resetFilter" class="btn btn-outline-dark" type="button">
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault10">
-          <label class="form-check-label" for="flexCheckDefault10">36 GB</label>
-        </div>
+      <div class="col-sm-8 col-md-9">
+        <!-- Filters -->
+        <ul class="shop__sorting">
+          <% data.orderBy.forEach((orderBy, i) => { %>
+          <li id="order_by_<%=i%>" class="orderByFilter">
+            <input value="<%=i%>" type="hidden" /><a href="#"><%= orderBy %></a>
+          </li>
+          <% }) %>
+        </ul>
 
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault11">
-          <label class="form-check-label" for="flexCheckDefault11">40 GB</label>
-        </div>
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault12">
-          <label class="form-check-label" for="flexCheckDefault12">48 GB</label>
-        </div>
-
-        <div class="form-check">
-          <input class="type form-check-input" type="checkbox" value="" id="flexCheckDefault13">
-          <label class="form-check-label" for="flexCheckDefault13">64 GB</label>
-        </div>
-        <br>
-
-        <!-- Checkboxes -->
-        <h4 class="headline">
-          <span>Storage Size</span>
-        </h4>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-          <label class="form-check-label" for="flexCheckDefault1">Less than 128GB</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-          <label class="form-check-label" for="flexCheckDefault2">128GB - 255.9GB</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-          <label class="form-check-label" for="flexCheckDefault3">256 GB - 511.9 GB</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-          <label class="form-check-label" for="flexCheckDefault4">512 GB - 749.9 GB</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
-          <label class="form-check-label" for="flexCheckDefault5">750 GB - 999.9 GB</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
-          <label class="form-check-label" for="flexCheckDefault6">1 TB - 1.9 TB</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7">
-          <label class="form-check-label" for="flexCheckDefault7">2 TB - 2.9 TB</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault8">
-          <label class="form-check-label" for="flexCheckDefault8">3 TB - 3.9 TB</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault9">
-          <label class="form-check-label" for="flexCheckDefault9">4 TB and Higher</label>
-        </div>
-        <br>
-
-        <!-- Checkboxes -->
-        <h4 class="headline">
-          <span>Storage Type</span>
-        </h4>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-          <label class="form-check-label" for="flexCheckDefault1">Hybrid Drive</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-          <label class="form-check-label" for="flexCheckDefault2">Solid State Drive(SSD)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-          <label class="form-check-label" for="flexCheckDefault3">Hard Disk Drive(HDD)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-          <label class="form-check-label" for="flexCheckDefault4">Embedded Multi-Media Card(eMMc)</label>
-        </div>
-        <br>
-
-        <!-- Radio button -->
-        <h4 class="headline">
-          <span>Condition</span>
-        </h4>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            New
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-          <label class="form-check-label" for="flexRadioDefault2">
-            Open Box
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-          <label class="form-check-label" for="flexRadioDefault3">
-            Refurbished
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
-          <label class="form-check-label" for="flexRadioDefault4">
-            Used
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
-          <label class="form-check-label" for="flexRadioDefault5">
-            For parts or not working
-          </label>
-        </div>
-      </form>
+        <div class="row" id="adsContainer"></div>
+        <!-- / .row -->
+      </div>
+      <!-- / .col-sm-8 -->
     </div>
-
-    <div class="col-sm-8 col-md-9">
-      <!-- Filters -->
-      <ul class="shop__sorting">
-        <li class="active"><a href="#">Popular</a></li>
-        <li><a href="#">Newest</a></li>
-        <li><a href="#">Bestselling</a></li>
-        <li><a href="#">Price (low)</a></li>
-        <li><a href="#">Price (high)</a></li>
-      </ul>
-
-      <div class="row">
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Samsung
-              </h5>
-              <div class="shop-thumb__price">
-                $1000
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Alienware
-              </h5>
-              <div class="shop-thumb__price">
-                $500
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Apple
-              </h5>
-              <div class="shop-thumb__price">
-                $1020
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Razor
-              </h5>
-              <div class="shop-thumb__price">
-                $900
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                MSI
-              </h5>
-              <div class="shop-thumb__price">
-                $1250
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Gateway
-              </h5>
-              <div class="shop-thumb__price">
-                $1100
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Fujitsu
-              </h5>
-              <div class="shop-thumb__price">
-                $300
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Gigabyte
-              </h5>
-              <div class="shop-thumb__price">
-                $600
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Microsoft
-              </h5>
-              <div class="shop-thumb__price">
-                $450
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Acer
-              </h5>
-              <div class="shop-thumb__price">
-                $1100
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Lenovo
-              </h5>
-              <div class="shop-thumb__price">
-                $400
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <div class="shop__thumb">
-            <a href="#">
-              <div class="shop-thumb__img">
-                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive" alt="...">
-              </div>
-              <h5 class="shop-thumb__title">
-                Dell
-              </h5>
-              <div class="shop-thumb__price">
-                $200
-              </div>
-            </a>
-          </div>
-        </div>
-
-
-      </div> <!-- / .row -->
-
-      <!-- Pagination -->
-      <div class="row">
-        <div class="col-sm-12">
-          <nav aria-label="...">
-            <ul class="pagination justify-content-end">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-                </a>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-                </a>
-            </ul>
-          </nav>
-        </div>
-      </div> <!-- / .row -->
-
-    </div> <!-- / .col-sm-8 -->
-  </div> <!-- / .row -->
+    <!-- / .row -->
+  </div>
 </div>
-</div>
+
+<script>
+  const getAllLocalStorage = () => {
+    const values = Object.keys(localStorage);
+
+    return values;
+  };
+
+  const setActiveFilters = () => {
+    const filters = getAllLocalStorage();
+
+    for (filter of filters) {
+      const id = window.localStorage.getItem(filter);
+
+      if (filter === "activeOrderById") {
+        $(`#${id}`).addClass("active");
+      }
+
+      $(`#${id}`).attr("checked", true);
+    }
+  };
+
+  setActiveFilters();
+
+  const generateQuery = () => {
+    let query = "";
+
+    const allCheckedInputs = $(".form-check").find("input:checked");
+
+    const activeOrderById = window.localStorage.getItem("activeOrderById");
+
+    if (activeOrderById) {
+      const el = $(`#${activeOrderById}`).find("input");
+
+      const val = $(el).val();
+
+      if (!query) {
+        query += `?order_by=${val}`;
+      } else {
+        query += `&order_by=${val}`;
+      }
+    }
+
+    for (const checkedInput of allCheckedInputs) {
+      const name = $(checkedInput).attr("name");
+      const val = $(checkedInput).val();
+
+      if (!query) {
+        query += `?${name}=${val}`;
+      } else {
+        query += `&${name}=${val}`;
+      }
+    }
+
+    return query;
+  };
+
+  const setAndRedirect = (el, filterId) => {
+    const index = $(el).val();
+
+    const id = $(el).attr("id");
+
+    window.localStorage.setItem(filterId, id);
+
+    window.location.replace(generateQuery());
+  };
+
+  // Filters Listener
+  $(".priceFilter").on("click", function () {
+    setAndRedirect(this, "activePriceFilterId");
+  });
+
+  $(".brandFilter").on("click", function () {
+    setAndRedirect(this, "activeBrandFilterId");
+  });
+
+  $(".screenSizeFilter").on("click", function () {
+    setAndRedirect(this, "activeScreenSizeFilterId");
+  });
+
+  $(".memorySizeFilter").on("click", function () {
+    setAndRedirect(this, "activeMemoryFilterId");
+  });
+
+  $(".storageSizeFilter").on("click", function () {
+    setAndRedirect(this, "activeStorageSizeFilterId");
+  });
+
+  $(".storageTypeFilter").on("click", function () {
+    setAndRedirect(this, "activeStorageTypeFilterId");
+  });
+
+  $(".conditionFilter").on("click", function () {
+    setAndRedirect(this, "activeConditionFilterId");
+  });
+
+  $("#resetFilter").on("click", function () {
+    window.localStorage.clear();
+
+    window.location.replace("/feed");
+  });
+
+  $(".orderByFilter").on("click", function () {
+    setAndRedirect(this, "activeOrderById");
+  });
+
+  // FETCH API
+  const route = window.location.search;
+
+  $.get(`/api/ad${route}`, (data) => {
+    let adsComponent = "";
+
+    const ads = data.response;
+
+    function truncateTitle(str) {
+      if (str.length > 25) {
+        return str.slice(0, 25) + "...";
+      } else {
+        return str;
+      }
+    }
+
+    const Ads = ({ ad_image_url, brand_name, price, title, id }) => {
+      return `
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="/feed/${id}">
+              <div class="shop-thumb__img">
+                <img
+                  src="${ad_image_url}"
+                  class="img-responsive ad-feed-dp"
+                  alt="..."
+                />
+              </div>
+              <h5 class="shop-thumb__title">C$${price}</h5>
+              <div class="shop-thumb__price text-wrap ad-title">${truncateTitle(
+                title
+              )}</div>
+              <span class='text-dark'>${brand_name}</span>
+            </a>
+          </div>
+        </div>
+      `;
+    };
+    if (ads.length !== 0) {
+      for (const ad of ads) {
+        adsComponent += Ads(ad);
+      }
+    } else {
+      adsComponent = `<div class="col-xs-12">No results found.</div>`;
+    }
+
+    $("#adsContainer").append(adsComponent);
+  });
+</script>
