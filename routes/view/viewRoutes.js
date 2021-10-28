@@ -2,7 +2,6 @@
  * All routes for Pages are defined here
  */
 
-const { application } = require("express");
 const express = require("express");
 const router = express.Router();
 const {
@@ -10,6 +9,7 @@ const {
   authPageRoute,
   publicRoute,
 } = require("../../middlewares");
+const data = require("../../data");
 
 // PROTECTED PAGES
 router.get("/dashboard", protectRoute, (req, res) => {
@@ -75,9 +75,9 @@ router.get("/feed", publicRoute, (req, res) => {
   const user = req.user;
   res.render("pages/feed", {
     user,
+    data,
   });
 });
-
 
 router.get("/feed/:id", publicRoute, (req, res) => {
   const user = req.user;
@@ -90,12 +90,12 @@ router.get("/feed/:id", publicRoute, (req, res) => {
   });
 });
 
- // about page
- router.get('/about', publicRoute, (req, res) => {
+// about page
+router.get("/about", publicRoute, (req, res) => {
   const user = req.user;
-  res.render('pages/about' , {
+  res.render("pages/about", {
     user,
- });
+  });
 });
 
 // AUTHENTICATED PAGES
