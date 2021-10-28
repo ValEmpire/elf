@@ -15,6 +15,8 @@ const {
   status,
 } = require("../../../data");
 
+
+// Create New Ad
 router.post("/", protectAPI, async (req, res) => {
   try {
     const {
@@ -76,13 +78,14 @@ router.post("/", protectAPI, async (req, res) => {
   }
 });
 
-// DISPLAY SINGLE ADD
+// QUERY FOR SINGLE ADD By ads.id, NO NEED VALIDATION
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    const query = `SELECT * FROM ads 
-                  WHERE id = $1`;
+    const query = `SELECT ads.*, laptops.* FROM ads
+                  JOIN laptops ON laptops.id = ads.laptop_id 
+                  WHERE ads.id = $1`;
 
     const param = [id];
 
@@ -246,12 +249,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Query apdate ads
 router.put("/:id", protectAPI, async (req, res) => {
-
   try {
     const { id } = req.params; //adId
 
-    const adLaptop = await laptop.query(`SELECT laptops.id, ads.user_id FROM laptops JOIN ads ON ads.laptop_id = laptops.id WHERE ads.id = $1`, [id]);
+    const adLaptop = await laptop.query(
+      `SELECT laptops.id, ads.user_id FROM laptops JOIN ads ON ads.laptop_id = laptops.id WHERE ads.id = $1`,
+      [id]
+    );
 
     if (adLaptop.rows.length === 0) throw new Error("Ad not found");
 
@@ -261,7 +267,8 @@ router.put("/:id", protectAPI, async (req, res) => {
 
     const userID = req.session.userID;
 
-    if (adLaptopOwner !== userID) throw new Error("You're only allowed to update your own ad.")
+    if (adLaptopOwner !== userID)
+      throw new Error("You're only allowed to update your own ad.");
 
     // expected body
     // brand_name, //laptops
@@ -284,13 +291,12 @@ router.put("/:id", protectAPI, async (req, res) => {
     let laptopQueryString = `UPDATE laptops SET`;
 
     for (const field in fields) {
-      if (field === 'title' || field === 'description') {
+      if (field === "title" || field === "description") {
         adParam.push(fields[field]);
-        adQueryString += ` ${field} = $${adParam.length}`
-      }
-      else {
-        laptopParam.push(fields[field])
-        laptopQueryString += ` ${field} = $${laptopParam.length}`
+        adQueryString += ` ${field} = $${adParam.length}`;
+      } else {
+        laptopParam.push(fields[field]);
+        laptopQueryString += ` ${field} = $${laptopParam.length}`;
       }
     }
 
@@ -309,17 +315,16 @@ router.put("/:id", protectAPI, async (req, res) => {
 
       laptopQueryString += ` WHERE laptops.id = $${laptopParam.length}`;
 
-      console.log(laptopQueryString)
+      console.log(laptopQueryString);
 
       await laptop.query(laptopQueryString, laptopParam);
-
     }
 
     return res.status(200).json({
       success: true,
     });
 
-    // we will make sure pthat only the user who created the ads can update his own ads
+    // we will make sure that only the user who created the ads can update his own ads
     // return if successful
     // throw error if not successful
   } catch (err) {
@@ -330,7 +335,6 @@ router.put("/:id", protectAPI, async (req, res) => {
     });
   }
 });
-
 
 router.delete("/:id", protectAPI, async (req, res) => {
   try {
