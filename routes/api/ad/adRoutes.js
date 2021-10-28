@@ -35,13 +35,13 @@ router.post("/", protectAPI, async (req, res) => {
     VALUES ( $1, $2, $3, $4, $5, $6, $7) RETURNING id`;
 
     laptopParams = [
-      brands[brand_name],
+      brand_name,
       screen_size,
-      conditions[condition],
-      memorySizes[memory],
+      condition,
+      memory,
       price,
       storage_size,
-      storageTypes[storage_type],
+      storage_type,
     ];
 
     const res1 = await laptop.query(laptopQuery, laptopParams);
@@ -341,6 +341,8 @@ router.delete("/:id", protectAPI, async (req, res) => {
     const { id } = req.params;
 
     const deleteAdQuery = `DELETE FROM ads WHERE ads.id = $1 AND user_id = $2`;
+
+    
 
     const deleteAdPapams = [id, req.session.userID];
 
