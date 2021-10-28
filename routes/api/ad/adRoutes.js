@@ -29,10 +29,9 @@ router.post("/", protectAPI, async (req, res) => {
       description,
     } = req.body;
 
-    laptopQuery = `INSERT INTO laptops (brand_name, screen_size, condition, memory, price, storage_size, storage_type)
-    VALUES ( $1, $2, $3, $4, $5, $6, $7) RETURNING id`;
+    console.log(req.body);
 
-    laptopParams = [
+    const laptopParams = [
       brands[brand_name],
       screen_size,
       conditions[condition],
@@ -41,6 +40,15 @@ router.post("/", protectAPI, async (req, res) => {
       storage_size,
       storageTypes[storage_type],
     ];
+
+    for (let param of laptopParams) {
+      if (!param) {
+        throw new Error("Please fill all fields");
+      }
+    }
+
+    const laptopQuery = `INSERT INTO laptops (brand_name, screen_size, condition, memory, price, storage_size, storage_type)
+    VALUES ( $1, $2, $3, $4, $5, $6, $7) RETURNING id`;
 
     const res1 = await laptop.query(laptopQuery, laptopParams);
 

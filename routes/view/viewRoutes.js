@@ -35,6 +35,7 @@ router.get("/createad", protectRoute, (req, res) => {
 
   res.render("pages/createAd", {
     user,
+    data,
   });
 });
 
