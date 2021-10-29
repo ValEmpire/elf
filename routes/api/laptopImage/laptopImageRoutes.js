@@ -13,11 +13,12 @@ router.post("/", protectAPI, async (req, res) => {
   try {
     const { urls, adId } = req.body;
 
-    const adsQuery = `SELECT ads.user_id, laptops.id as laptop_id
-    FROM ads
-    JOIN laptops ON laptops.id = ads.laptop_id
-    JOIN laptop_images ON laptops.id = laptop_images.laptop_id
-    WHERE ads.id = $1 `;
+    const adsQuery = `
+      SELECT ads.user_id, laptops.id as laptop_id
+      FROM ads
+      JOIN laptops ON laptops.id = ads.laptop_id
+      WHERE ads.id = $1
+    `;
 
     const adParams = [adId];
 
@@ -28,21 +29,31 @@ router.post("/", protectAPI, async (req, res) => {
     }
 
     const response = await laptop_images.query(adsQuery, adParams);
+
     if (response.rows[0].user_id !== req.session.userID) {
-      throw new Error("You not aloud.");
+      throw new Error("Your not aloud.");
     }
+
+    let laptopImageId;
 
     for (let url of urls) {
       const query = `INSERT INTO laptop_images (laptop_id, url, created_at, updated_at)
-      VALUES ($1, $2, $3, $4)`;
+      VALUES ($1, $2, $3, $4) RETURNING id`;
 
       const created_at = new Date();
       const updated_at = new Date();
 
       const params = [response.rows[0].laptop_id, url, created_at, updated_at];
 
-      await laptop_images.query(query, params);
+      const laptopId = await laptop_images.query(query, params);
+
+      laptopImageId = laptopId.rows[0].id;
     }
+
+    laptop_images.query("UPDATE ads SET laptop_image_id = $1 WHERE id = $2", [
+      laptopImageId,
+      adId,
+    ]);
 
     return res.status(200).json({
       success: true,

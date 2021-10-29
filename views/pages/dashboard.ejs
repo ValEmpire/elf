@@ -27,14 +27,15 @@
 
       let ads = "";
 
-      const generateAd = (photo_url, brand_name, id) => {
+      const generateAd = (url, brand_name, id) => {
         return `
         <div class="col-sm-6 col-md-3">
           <div class="shop__thumb">
             <a href="#">
               <div class="shop-thumb__img">
                 <img
-                  src="${photo_url ?? "/images/no-image.jpg"}"
+                  style='max-height:280px'
+                  src="${url ?? "/images/no-image.jpg"}"
                   class="img-responsive"
                   alt="laptop"
                 /></div
@@ -68,9 +69,9 @@
 
       if (data.response.length > 0) {
         for (const ad of data.response) {
-          const { photo_url, brand_name, id } = ad;
+          const { url, brand_name, id } = ad;
 
-          ads += generateAd(photo_url, brand_name, id);
+          ads += generateAd(url, brand_name, id);
         }
       } else {
         ads += `<div class='col-xs-12'>No results.</div>`;

@@ -88,7 +88,7 @@ router.get("/:id", async (req, res) => {
     const { id } = req.params;
 
     const query = `
-      SELECT ads.*, laptops.*, users.*, laptop_images.url FROM ads
+      SELECT ads.*, ads.id AS adid, laptops.*, users.*, laptop_images.url FROM ads
       JOIN laptops ON laptops.id = ads.laptop_id
       LEFT JOIN laptop_images ON laptop_images.laptop_id = laptops.id
       JOIN users ON ads.user_id = users.id

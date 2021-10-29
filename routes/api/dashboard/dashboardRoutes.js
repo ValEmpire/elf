@@ -8,9 +8,10 @@ router.get("/", protectAPI, async (req, res) => {
     const userID = req.session.userID;
 
     const query = `
-      SELECT ads.*, laptops.* FROM ads
+      SELECT ads.*, laptops.*, laptop_images.url FROM ads
       JOIN laptops ON laptops.id = ads.laptop_id
       JOIN users ON ads.user_id = users.id
+      LEFT JOIN laptop_images ON laptop_images.id = ads.laptop_image_id
       WHERE ads.user_id = $1`;
 
     const param = [userID];
