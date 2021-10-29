@@ -42,6 +42,10 @@
       function (data) {
         window.location.replace("/dashboard");
       }
-    );
+    ).fail(function (response) {
+      const error = response.responseJSON.response;
+
+      showError(error);
+    });
   });
 </script>
