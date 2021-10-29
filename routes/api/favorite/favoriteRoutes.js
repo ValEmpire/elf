@@ -110,7 +110,7 @@ router.get("/:adId", async (req, res) => {
     const query = `
       SELECT user_favorites.id FROM user_favorites
       JOIN users ON user_favorites.user_id = users.id
-      JOIN ads ON ads.id = user_favorites.user_id
+      JOIN ads ON ads.id = user_favorites.ad_id
       WHERE users.id = $1 AND ads.id = $2;
     `;
 
