@@ -340,25 +340,4 @@ router.put("/:id", protectAPI, async (req, res) => {
   }
 });
 
-router.delete("/:id", protectAPI, async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const deleteAdQuery = `DELETE FROM ads WHERE ads.id = $1 AND user_id = $2`;
-
-    const deleteAdPapams = [id, req.session.userID];
-
-    await ads.query(deleteAdQuery, deleteAdPapams);
-
-    // return if successful
-    return res.status(200).json({
-      success: true,
-    });
-
-    // throw error if not successful
-  } catch (err) {
-    console.log(err);
-  }
-});
-
 module.exports = router;
