@@ -12,7 +12,7 @@
   <div class="container p-4">
     <div class="row justify-content-center align-items-center h-100">
       <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
-        <form action="">
+        <form>
           <div class="form-group">
             <label for="exampleInputName1" class="form-label">Name</label>
             <input
@@ -21,7 +21,9 @@
               class="form-control"
               aria-describedby="nameHelp"
             />
-            <div id="nameHelp" class="form-text">The name should be at list five characters.</div>
+            <div id="nameHelp" class="form-text">
+              The name should be atleast five characters.
+            </div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1" class="form-label"
@@ -47,7 +49,7 @@
               class="form-control"
             />
             <div id="passwordHelp" class="form-text">
-              The password should be at list seven  characters.
+              The password should be atleast eight characters.
             </div>
           </div>
           <div class="form-group">
@@ -70,6 +72,7 @@
               type="phone"
               class="form-control"
               aria-describedby="phoneHelp"
+              placeholder="3437112477"
             />
             <div id="phoneHelp" class="form-text">
               We'll never share your phone with anyone else.
@@ -96,7 +99,9 @@
   </div>
 </div>
 <script>
-  $("#signupFormSubmit").click(function () {
+  $("#signupFormSubmit").click(function (e) {
+    e.preventDefault();
+
     const name = $("#nameFormField").val();
     const email = $("#emailFormField").val();
     const password = $("#passwordFormField").val();
@@ -118,8 +123,10 @@
         // redirect to the params
         window.location.replace("/createAd");
       }
-    );
-  });
+    ).fail(function (response) {
+      const error = response.responseJSON.response;
 
-  console.log(storage);
+      showError(error);
+    });
+  });
 </script>

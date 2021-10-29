@@ -69,6 +69,10 @@
       function (data) {
         window.location.replace("/createAd");
       }
-    );
+    ).fail(function (response) {
+      const error = response.responseJSON.response;
+
+      showError(error);
+    });
   });
 </script>

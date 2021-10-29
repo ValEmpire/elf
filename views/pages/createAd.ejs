@@ -9,112 +9,7 @@
     </div>
   </div>
   <hr />
-  <div class="container p-4 mb-4 mt-4">
-    <form id="create_ad" class="d-flex flex-column align-items-center">
-      <div class="col-md-4">
-        <label for="title" class="form-label">Title</label>
-        <input
-          id="title"
-          type="text"
-          class="form-control"
-          placeholder="Title"
-        />
-      </div>
-      <br />
-      <div class="col-md-4">
-        <label for="description" class="form-label">Description</label>
-        <textarea id="description" class="form-control" rows="4"></textarea>
-      </div>
-      <br />
-      <!-- BRANDS -->
-      <div class="col-md-4">
-        <label for="brand_name" class="form-label">Brand</label>
-        <select id="brand_name" class="form-select">
-          <option selected></option>
-          <!-- Populate brands -->
-          <% data.brands.forEach((brand, i) => { %>
-          <option value="<%=i%>"><%=brand%></option>
-          <% }) %>
-        </select>
-      </div>
-
-      <br />
-      <div class="col-md-4">
-        <label for="screenSizeFormField" class="form-label">Screen Size</label>
-        <input
-          id="screen_size"
-          type="number"
-          step=".01"
-          class="form-control"
-          placeholder="Specify the screen size in inches"
-        />
-      </div>
-      <br />
-      <div class="col-md-4">
-        <label for="condition" class="form-label">Condition</label>
-        <select id="condition" class="form-select">
-          <option selected></option>
-          <% data.conditions.forEach((condition, i) => { %>
-          <option value="<%=i%>"><%=condition%></option>
-          <% }) %>
-        </select>
-      </div>
-      <br />
-      <div class="col-md-4">
-        <label for="memory" class="form-label">Memory</label>
-        <select id="memory" class="form-select">
-          <option selected></option>
-          <% data.memorySizes.forEach((memory, i) => { %>
-          <option value="<%=i%>"><%=memory%> GB</option>
-          <% }) %>
-        </select>
-      </div>
-      <br />
-      <div class="col-md-4">
-        <label for="price" class="form-label">Price in $C</label>
-        <input
-          id="price"
-          type="number"
-          step=".01"
-          class="form-control"
-          placeholder="$0.00"
-        />
-      </div>
-      <br />
-      <div class="col-md-4">
-        <label for="storage_size" class="form-label">Storage Size in GB</label>
-        <input
-          id="storage_size"
-          type="number"
-          step=".01"
-          class="form-control"
-          placeholder=""
-        />
-      </div>
-      <br />
-      <div class="col-md-4">
-        <label for="storage_type" class="form-label">Storage Type</label>
-        <select id="storage_type" class="form-select">
-          <option selected></option>
-          <% data.storageTypes.forEach((type, i) => { %>
-          <option value="<%=i%>"><%=type%></option>
-          <% }) %>
-        </select>
-      </div>
-      <br />
-      <div class="container p-4">
-        <div class="row">
-          <div class="col">
-            <div class="text-center">
-              <button id="signupFormSubmit" class="btn btn-success btn-sm">
-                Submit
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
+  <% include ../partials/_createAd %>
 </div>
 
 <script>
@@ -145,8 +40,12 @@
         description,
       },
       function (data) {
-        window.location.replace("/upload_images");
+        window.location.replace("/dashboard");
       }
-    );
+    ).fail(function (response) {
+      const error = response.responseJSON.response;
+
+      showError(error);
+    });
   });
 </script>

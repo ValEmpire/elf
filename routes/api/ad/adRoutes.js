@@ -29,8 +29,6 @@ router.post("/", protectAPI, async (req, res) => {
       description,
     } = req.body;
 
-    console.log(req.body);
-
     const laptopParams = [
       brands[brand_name],
       screen_size,
@@ -89,8 +87,12 @@ router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    const query = `SELECT * FROM ads
-                  WHERE id = $1`;
+    const query = `
+      SELECT ads.*, ads.id AS adid, laptops.*, users.*, laptop_images.url FROM ads
+      JOIN laptops ON laptops.id = ads.laptop_id
+      LEFT JOIN laptop_images ON laptop_images.laptop_id = laptops.id
+      JOIN users ON ads.user_id = users.id
+      WHERE ads.id = $1`;
 
     const param = [id];
 
@@ -219,9 +221,7 @@ router.get("/", async (req, res) => {
 
             // we will concat the orderby at the end of the query string
             case "order_by":
-              params.push(orderByVal[index]);
-
-              query += ` ORDER BY $${params.length}`;
+              query += `ORDER BY ${orderByVal[index]}`;
               break;
 
             default:
@@ -337,27 +337,6 @@ router.put("/:id", protectAPI, async (req, res) => {
       success: false,
       response: err.message,
     });
-  }
-});
-
-router.delete("/:id", protectAPI, async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const deleteAdQuery = `DELETE FROM ads WHERE ads.id = $1 AND user_id = $2`;
-
-    const deleteAdPapams = [id, req.session.userID];
-
-    await ads.query(deleteAdQuery, deleteAdPapams);
-
-    // return if successful
-    return res.status(200).json({
-      success: true,
-    });
-
-    // throw error if not successful
-  } catch (err) {
-    console.log(err);
   }
 });
 

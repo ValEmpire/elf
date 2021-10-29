@@ -20,12 +20,21 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
+          <!-- PUBLIC ROUTES -->
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/feed">Feed</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/about"
+              >About</a
+            >
+          </li>
+
+          <!-- PROTECTED ROUTES -->
+          <% if(locals.user){ %>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/createAd"
               >Create Ad</a
@@ -47,6 +56,12 @@
             >
           </li>
           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/logout"
+              >Log Out</a
+            >
+          </li>
+          <% } else{ %>
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/login"
               >Log In</a
             >
@@ -56,11 +71,7 @@
               ><span class="glyphicon glyphicon-user"></span>Sign Up</a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/logout"
-              >Log Out</a
-            >
-          </li>
+          <% } %>
         </ul>
       </div>
     </div>
