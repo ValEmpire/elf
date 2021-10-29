@@ -17,7 +17,6 @@ router.post("/signup", async (req, res) => {
     if (password !== checkPassword) {
       throw new Error("Passwords not matched");
     }
-    
 
     const hashPassword = bcrypt.hashSync(password, 12);
 
@@ -45,7 +44,7 @@ router.post("/signup", async (req, res) => {
       if (password.length <= 7) {
         throw new Error("Password should be more then 7 characters");
       }
-      if (contact_phone.length < 10) {
+      if (contact_phone.length !== 10) {
         throw new Error("Phone must be 10 digits long");
       }
     }
@@ -97,7 +96,7 @@ router.post("/login", async (req, res) => {
     );
 
     if (!isPasswordMatch) {
-      throw Error("Password does not matched!");
+      throw Error("Incorrect credentials");
     }
 
     // start the session
