@@ -1,89 +1,222 @@
-<div class="text-center">
-  <h1>Admin!</h1></div>
-  <hr />
-  <div class="container-fluid h-100 text-dark p-4">
-    <div class="row justify-content-center align-items-center">
-      <div class="container p-4">
+<div class="container-fluid h-100 text-dark p-4">
+  <div class="row justify-content-center align-items-center">
+    <div class="container p-4">
+      <div class="row">
+        <div
+          class="d-flex justify-content-between align-items-end mt-3 px-2 pt-2"
+        >
+          <div>
+            <h5 id="title" style="text-transform: capitalize"></h5>
+            <h6 class="text-success"><span id="price"></span></h6>
+          </div>
+          <span class="heart"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row d-flex justify-content-center mt-5">
+      <div class="col-md-6">
+        <div
+          id="carouselExampleControls"
+          class="carousel slide carousel-dark"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner"></div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row m-md-5 m-3 g-2 gx-5">
+    <div class="col-lg-6 bg-blue py-5">
+      <hr
+        style="
+          height: 2px;
+          width: 100%;
+          border-width: 0;
+          color: black;
+          background-color: black;
+        "
+      />
+      <div>
+        <span class="laptop text-muted float-start py-2 ms-2"
+          ><i class="fas fa-laptop"></i>Brand: <span id="brand"></span
+        ></span>
+        <span class="condition text-muted float-end py-2 me-2"
+          ><i class="fas fa-adjust"></i>Condition:
+          <span id="condition"></span></span
+        ><br />
+      </div>
+      <div
+        class="d-flex justify-content-between align-items-end mt-3 px-2 pt-2"
+      >
+        <h4>Description</h4>
+      </div>
+      <div class="mt-2 px-2">
+        <p id="description"></p>
+        <hr />
+        <small>
+          <p>Screen size: <span id="screen_size"></span></p>
+          <p>Installed RAM: <span id="memory_size"></span></p>
+          <p>
+            Storage: <span id="storage_size"></span>
+            <span id="storage_type"></span>
+          </p>
+        </small>
+      </div>
+    </div>
+    <div class="col-lg-4 bg-blue py-5">
+      <div class="card mb-3 py-4 ms-2">
         <div class="row">
-          <div class="text-left">
-            <h5>Asus Zenbook Pro UX550VE 15.6” NVIDIA GeForce 1050 Ti (New!)</h5>
-  <h8 style="color:green;text-align:center;">
-    $860
-  </h8>
+          <h4 class="text-center mb-4">Contact Seller</h4>
+        </div>
+        <div class="mb-3 ms-2 me-2">
+          <div class="card flex-row flex-wrap">
+            <div class="card-header border-0">
+              <span id="avatar"></span>
+            </div>
+            <div class="card-block px-2">
+              <strong class="card-title" id="name"></strong><br />
+              <span class="card-text" id="email"></span> <br />
+              <span class="card-text" id="contact_phone"></span>
+            </div>
+          </div>
+        </div>
+        <div class="form-check ms-2 me-2 pt-2">
+          <div class="d-grid gap-2 mx-auto me-2 pt-4">
+            <button class="btn btn-primary" type="button">Send Message</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row d-flex justify-content-center mt-5">
-          <div class="col-md-6">
-              <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" align="center">
-                  <div class="carousel-inner">
-                      <div class="carousel-item active"> <img src="/images/lap3.png" class="rounded"> </div>
-                      <div class="carousel-item"> <img src="/images/lap2.png" class="rounded"> </div>
-                      <div class="carousel-item"> <img src="/images/lap1.png" class="rounded"> </div>
-                  </div>
-                  <ol class="carousel-indicators list-inline">
-                      <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel"> <img src="/images/lap2.png" class="img-fluid rounded"> </a> </li>
-                      <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel"> <img src="/images/lap4.png" class="img-fluid rounded"> </a> </li>
-                      <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel"> <img src="/images/lap1.png" class="img-fluid rounded"> </a> </li>
-                  </ol>
-              </div>
-          </div>
-      </div>
   </div>
-  <div class="row m-md-5 m-3 g-2 gx-5">
-    <div class="col-lg-6 bg-blue py-5 ">
-    <hr style="height:2px; width:100%; border-width:0; color:black; background-color:black;"> <div>
-       <span class="laptop text-muted float-start py-2 ms-2"><i class="fas fa-laptop"></i>Brand: ASUS</span>
-      <span class="condition text-muted float-end py-2 me-2"><i class="fas fa-adjust"></i>Condition: Used - Like new</span><br>
-      </div>
-    <div class="d-flex justify-content-between align-items-end mt-3 px-2 pt-2"> <h4>Description </h4>
-       <span class="heart"><i class="fa fa-heart text-danger"></i></span> </div>
-       <div class="mt-2 px-2">
-         <small>
-          <p>New. Small scratch on back and side. Runs fast and smoothly. In Very Good condition. No damage to internal or external hardware, not broken. Runs smoothly. Comes with charger and soft case. Specs below:</p>
-           <p>UX550VE Signature Edition</p>
-            <p>Screen size: 15.6” FHD display</p>
-             <p>Processor: Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz 2.81 GHz</p>
-              <p>GPU: NVIDIA GeForce GTX 1050 Ti</p>
-               <p>Installed RAM: 16.0 GB (15.9 GB usable)</p> <p>SSD: 512 GB SSD</p>
-               <p>System type: 64-bit operating system, x64-based processor</p>
-               <p>Pen and touch: Pen and touch support with 10 touch points</p>
-               <p>Front facing webcam</p>
-               <p>Windows: Windows 10 Home</p>
-               <p>3 years old </p>
-              </small>
-         </div>
-          <div class="px-2">
-            <h5>$500</h5>
-           </div>
-           <div class="px-2 mt-3 pt-2 py-4">
-            <button class="btn btn-outline-primary px-4">Edit</button>
-            <button class="btn btn-outline-primary px-3">Delete</button>
-          </div>
-
-
 </div>
-  <div class="col-lg-4 bg-blue py-5">
-    <div class="card mb-3 py-4 ms-2" >
-      <div class="row">
-      <h4 class="text-center mb-4">Contact Seller</h4>
-</div>
-            <div class=" mb-3 ms-2 me-2">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Message&#10; Hi, I'm Interested!Please contact me if&#10; this is still available. "></textarea>
-            </div>
-            <div class="form-check ms-2 me-2 pt-2">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Send me a copy of email
-              </label>
-              <div class="d-grid gap-2  mx-auto me-2 pt-4">
-                <button class="btn btn-primary" type="button">Send Message</button>
-              </div>
-            </div>
-      </div>
-    </div>
-    </div>
 
+<script>
+  const pathname = window.location.pathname;
 
+  const adId = pathname.substr(pathname.lastIndexOf("/") + 1);
+
+  function normalize(phone) {
+    //normalize string and remove all unnecessary characters
+    phone = phone.replace(/[^\d]/g, "");
+
+    //check if number length equals to 10
+    if (phone.length == 10) {
+      //reformat and return phone number
+      return phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+    }
+
+    return null;
+  }
+
+  $.get(`/api/ad/${adId}`, function (data) {
+    console.log(data);
+
+    const laptops = data.response;
+
+    const {
+      title,
+      price,
+      brand_name,
+      condition,
+      description,
+      screen_size,
+      storage_type,
+      storage_size,
+      memory,
+      name,
+      email,
+      contact_phone,
+    } = laptops[0];
+
+    $("#title").text(title);
+    $("#price").text(`$${price}`);
+    $("#condition").text(condition);
+    $("#brand").text(brand_name);
+    $("#description").text(description);
+    $("#memory_size").text(`${memory} GB`);
+    $("#screen_size").text(`${screen_size}"`);
+    $("#storage_size").text(`${storage_size} GB`);
+    $("#storage_type").text(`${storage_type}"`);
+    $("#name").text(name);
+    $("#email").text(email);
+    $("#contact_phone").text(normalize(contact_phone));
+    $("#avatar").append(
+      `<img src="/images/${name.charAt(0).toLowerCase()}.png" width=64 />`
+    );
+
+    let carouselImages = "";
+
+    if (laptops[0].url) {
+      laptops.forEach((laptop, i) => {
+        carouselImages += `
+        <div class="carousel-item ${i === 0 ? "active" : ""}">
+          <img src="${laptop.url}" class="d-block w-100" alt="laptop_images" />
+        </div>`;
+      });
+    } else {
+      carouselImages += `
+        <div class="carousel-item active">
+          <img src="/images/no-image.jpg" class="d-block w-100" alt="laptop_images" />
+        </div>`;
+    }
+
+    $(".carousel-inner").append(carouselImages);
+  });
+
+  const resetFavoriteBtn = (isFavorite) => {
+    $.when($(".favorite").detach()).then(() => {
+      appendFavoriteBtn(isFavorite);
+    });
+  };
+
+  const appendFavoriteBtn = (isFavorite) => {
+    if (isFavorite) {
+      $(".heart").append(
+        `<button class='favorite btn btn-success'>Saved to favorites</button>`
+      );
+    } else {
+      $(".heart").append(
+        `<button class='favorite btn btn-secondary'>Save to favorites</button>`
+      );
+    }
+  };
+
+  $.get(`/api/favorite/${adId}`, function (ad) {
+    // appendFavorite
+    appendFavoriteBtn(ad.isFavorite);
+
+    $(".heart").on("click", function () {
+      console.log("favorite is clicked");
+
+      $.post(
+        "/api/favorite",
+        {
+          adId,
+        },
+        function (ad) {
+          resetFavoriteBtn(ad.isFavorite);
+        }
+      );
+    });
+  });
+</script>

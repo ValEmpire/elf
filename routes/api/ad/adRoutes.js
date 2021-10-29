@@ -29,8 +29,6 @@ router.post("/", protectAPI, async (req, res) => {
       description,
     } = req.body;
 
-    console.log(req.body);
-
     const laptopParams = [
       brands[brand_name],
       screen_size,
@@ -89,8 +87,12 @@ router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    const query = `SELECT * FROM ads
-                  WHERE id = $1`;
+    const query = `
+      SELECT ads.*, laptops.*, users.*, laptop_images.url FROM ads
+      JOIN laptops ON laptops.id = ads.laptop_id
+      LEFT JOIN laptop_images ON laptop_images.laptop_id = laptops.id
+      JOIN users ON ads.user_id = users.id
+      WHERE ads.id = $1`;
 
     const param = [id];
 
