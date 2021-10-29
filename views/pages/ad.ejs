@@ -81,6 +81,11 @@
             <span id="storage_type"></span>
           </p>
         </small>
+        <hr />
+        <h6>
+          This laptop is
+          <span id="status"></span>
+        </h6>
       </div>
     </div>
     <div class="col-lg-4 bg-blue py-5">
@@ -145,6 +150,7 @@
       memory,
       name,
       email,
+      status,
       contact_phone,
     } = laptops[0];
 
@@ -155,6 +161,7 @@
     $("#description").text(description);
     $("#memory_size").text(`${memory} GB`);
     $("#screen_size").text(`${screen_size}"`);
+    $("#status").text(`${status}.`);
     $("#storage_size").text(`${storage_size} GB`);
     $("#storage_type").text(`${storage_type}"`);
     $("#name").text(name);

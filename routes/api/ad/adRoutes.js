@@ -221,9 +221,7 @@ router.get("/", async (req, res) => {
 
             // we will concat the orderby at the end of the query string
             case "order_by":
-              params.push(orderByVal[index]);
-
-              query += ` ORDER BY $${params.length}`;
+              query += `ORDER BY ${orderByVal[index]}`;
               break;
 
             default:
