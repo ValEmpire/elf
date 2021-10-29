@@ -44,5 +44,10 @@
     <!-- FIREBASE SETUP -->
     <script type="module" src="/scripts/firebase/index.js"></script>
     <script type="module" src="/scripts/laptopImageUpload.js"></script>
+    <script>
+      if (window.location.pathname.indexOf("/feed") === -1) {
+        window.localStorage.clear();
+      }
+    </script>
   </body>
 </html>
