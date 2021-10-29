@@ -27,6 +27,7 @@ router.get("/dashboard/:id", protectRoute, (req, res) => {
   res.render("pages/sellerAd", {
     user,
     ad_id,
+    data,
   });
 });
 

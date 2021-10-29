@@ -8,7 +8,7 @@ const laptopURLs = [];
 
 // we will call this each time the firebase returns successful
 const compileLaptopURLs = (userID, fileName) => {
-  const url = `https://firebasestorage.googleapis.com/v0/b/elf-2e2a6.appspot.com/o/${userID}%2F${fileName}.jpg?alt=media`;
+  const url = `https://firebasestorage.googleapis.com/v0/b/elf-2e2a6.appspot.com/o/user${userID}%2F${fileName}.jpg?alt=media`;
 
   laptopURLs.push(url);
 
@@ -17,8 +17,10 @@ const compileLaptopURLs = (userID, fileName) => {
 
 // we will call this after successful upload in firebase storage
 const saveToDB = (urls) => {
-  return $.post("/laptop_images", { urls }, (data) => {
-    console.log(data);
+  const adId = $("#adId").val();
+
+  return $.post("/api/laptopImage", { urls, adId }, (data) => {
+    renderImage();
   });
 };
 
@@ -139,7 +141,7 @@ $("#uploadImageBtn").on("click", async function () {
   }
 
   // save all the urls is postgres
-  // await saveToDB(laptopURLs);
+  await saveToDB(laptopURLs);
 
   $(this).text("Success");
 
