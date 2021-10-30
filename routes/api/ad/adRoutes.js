@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const ads = require("../../../db");
 const laptop = require("../../../db");
+const user = require("../../../db");
 const { protectAPI } = require("../../../middlewares");
 const {
   memorySizes,
@@ -29,7 +30,7 @@ router.post("/", protectAPI, async (req, res) => {
       description,
     } = req.body;
 
-    console.log(req.body);
+    // console.log(req.body);
 
     const laptopParams = [
       brands[brand_name],
