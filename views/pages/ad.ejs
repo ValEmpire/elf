@@ -134,9 +134,17 @@
   }
 
   $.get(`/api/ad/${adId}`, function (data) {
-    console.log(data);
-
     const laptops = data.response;
+
+    if (laptops.length === 0) {
+      showError("No data found with this data id.");
+
+      setTimeout(function () {
+        window.location.replace("/feed");
+      }, 2000);
+
+      return;
+    }
 
     const {
       title,
