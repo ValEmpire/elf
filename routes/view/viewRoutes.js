@@ -63,6 +63,22 @@ router.get("/upload_images", protectRoute, (req, res) => {
   });
 });
 
+router.get("/feature", publicRoute, (req, res) => {
+  const user = req.user;
+
+  res.render("pages/feature", {
+    user,
+  });
+});
+
+router.put("/feature/:id", protectRoute, (req,res) => {
+  const user = req.user;
+
+  res.render("pages/feature/", {
+    user,
+  });
+});
+
 // PUBLIC PAGES
 router.get("/", publicRoute, (req, res) => {
   const user = req.user;
@@ -71,6 +87,14 @@ router.get("/", publicRoute, (req, res) => {
     user,
   });
 });
+
+// router.get("/feature", publicRoute, (req, res) => {
+//   const user = req.user;
+
+//   res.render("pages/feature", {
+//     user,
+//   });
+// });
 
 router.get("/feed", publicRoute, (req, res) => {
   const user = req.user;
