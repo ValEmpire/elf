@@ -54,4 +54,40 @@ router.delete("/:adId", protectAPI, async (req, res) => {
   }
 });
 
+router.get("/:id", protectAPI, async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const query = `
+      SELECT ads.*, ads.id AS adid, laptops.*, users.*, laptop_images.url FROM ads
+      JOIN laptops ON laptops.id = ads.laptop_id
+      LEFT JOIN laptop_images ON laptop_images.laptop_id = laptops.id
+      JOIN users ON ads.user_id = users.id
+      WHERE ads.id = $1`;
+
+    const param = [id];
+
+    const userID = req.session.userID;
+
+    const response = await ads.query(query, param);
+
+    if (response.rows.length === 0 || response.rows[0].user_id !== userID) {
+      throw new Error("Not allowed.");
+    }
+
+    return res.status(200).json({
+      success: true,
+      response: response.rows,
+    });
+    //  we will return a single ad with the id of params
+    // we auqery db where id = params.id
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      success: false,
+      responce: err.message,
+    });
+  }
+});
+
 module.exports = router;

@@ -16,22 +16,20 @@
     </div>
   </div>
   <hr />
-  <h1 class="text-center"><%=user.name%>'s Dashboard</h1>
+  <h1 class="text-center text-capitalize"><%=user.name%>'s Dashboard</h1>
   <div class="row ads-container"></div>
 </div>
 
 <script>
   const renderAds = () => {
     $.get("/api/dashboard", function (data) {
-      console.log(data);
-
       let ads = "";
 
       const generateAd = (url, brand_name, id) => {
         return `
         <div class="col-sm-6 col-md-3">
           <div class="shop__thumb">
-            <a href="#">
+            <a href="/dashboard/${id}">
               <div class="shop-thumb__img">
                 <img
                   style='max-height:280px'
@@ -53,7 +51,7 @@
                         ><input type='hidden' value="${id}"/>
                           <i class="fa fa-trash-o"></i>
                         </a>
-                        <a href="/dashboard/${id}" class="btn btn-outline-primary edit" rel="2">
+                        <a href="/dashboard/${id}" class="btn btn-outline-success edit" rel="2">
                           <i class="fas fa-edit"></i>
                         </a>
                       </td>

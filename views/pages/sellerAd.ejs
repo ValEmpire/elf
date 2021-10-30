@@ -1,8 +1,7 @@
 <div class="container-fluid h-100 text-dark p-4">
   <div class="text-center">
-    <h1>Add images</h1>
+    <h1>Update Infos</h1>
   </div>
-
   <div class="row justify-content-md-center">
     <div class="col-md-5 col-sm-12">
       <div class="row images-container"></div>
@@ -42,34 +41,41 @@
   const adId = pathname.substr(pathname.lastIndexOf("/") + 1);
 
   const renderImage = () => {
-    $.get(`/api/ad/${adId}`, function (data) {
+    $.get(`/api/dashboard/${adId}`, function (data) {
       if (data.response.length === 0) return alert("Ad not found");
 
       const ads = data.response;
 
       const ad = ads[0];
 
-      const { adid } = ad;
+      const { adid, status } = ad;
 
       $("#adId").val(adid);
 
+      $("#status").text(status);
+
       const genImage = (url) => {
         return `
-      <div class="col-md-3 col-sm-4 col-xs-12 image-container">
-        <img class="img-fluid" src="${url ?? "/images/no-image.jpg"}" />
-      </div>
-    `;
+          <div class="col-md-3 col-sm-4 col-xs-12 image-container">
+            <img class="img-fluid" src="${url ?? "/images/no-image.jpg"}" />
+          </div>
+        `;
       };
 
       let images = ``;
 
       for (const ad of ads) {
         const { url } = ad;
-        console.log(url);
         images += genImage(url);
       }
 
       $(".images-container").empty().append(images);
+    }).fail(function (data) {
+      showError("Not allowed.");
+
+      setTimeout(function () {
+        window.location.replace("/dashboard");
+      }, 2000);
     });
   };
 
