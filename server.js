@@ -2,14 +2,54 @@
 require("dotenv").config();
 
 // Web server config
+const http = require("http");
 const PORT = process.env.PORT || 8080;
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
+const server = http.createServer(app);
 const morgan = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
 const db = require("./db");
 const cookieSession = require("cookie-session");
+
+// SOCKET.io
+const socketio = require("socket.io");
+const io = socketio(server);
+
+// run when client connects
+io.on("connection", (socket) => {
+  console.log("New connection");
+
+  // When user logged in
+  socket.on("loggedIn", function (userId) {
+    socket.join(userId);
+  });
+
+  // When user logged out
+  socket.on("loggedOut", function (userId) {
+    socket.leave(userId);
+  });
+
+  // When user clicks the chat
+  socket.on("openChat", function (chatId) {
+    socket.join(chatId);
+  });
+
+  // When user leaves the chat
+  socket.on("closeChat", function (chatId) {
+    socket.leave(chatId);
+  });
+
+  socket.on("message", function (messageInfo) {
+    io.in(chatId).emit("chatMessage"); // this emits to chat
+    io.in(userId).emit("lastMessage"); // this emits to inbox
+  });
+
+  socket.on("disconnect", () => {
+    io.emit("message", "A user left the chat");
+  });
+});
 
 // connect to database
 db.connect();
@@ -60,6 +100,6 @@ app.use("/api/dashboard", require("./routes/api/dashboard/dashboardRoutes"));
 // This is our Routes for all the pages
 app.use("/", require("./routes/view/viewRoutes"));
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`elf App is listening on port ${PORT}`);
 });

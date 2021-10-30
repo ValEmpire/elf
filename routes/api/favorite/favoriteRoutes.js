@@ -100,10 +100,16 @@ router.get("/:adId", async (req, res) => {
     const userID = req.session.userID;
     const { adId } = req.params;
 
-    if (!userID) {
+    const adQuery = `SELECT ads.user_id FROM ads WHERE id = $1`;
+
+    const checkAd = await ads.query(adQuery, [adId]);
+
+    const ownerId = checkAd.rows[0].user_id;
+
+    if (ownerId === userID) {
       return res.status(200).json({
         success: true,
-        isFavorite: false,
+        hideButton: true,
       });
     }
 
