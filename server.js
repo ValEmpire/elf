@@ -96,6 +96,7 @@ app.use(
 );
 app.use("/api/favorite", require("./routes/api/favorite/favoriteRoutes"));
 app.use("/api/dashboard", require("./routes/api/dashboard/dashboardRoutes"));
+app.use("/api/message", require("./routes/api/message/messageRoutes"));
 
 // This is our Routes for all the pages
 app.use("/", require("./routes/view/viewRoutes"));
