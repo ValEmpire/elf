@@ -1,7 +1,7 @@
 BUY AND SELL WEBSITE
 =========
 
-## About EASY LAPTOP FINDER(ELF)
+## ABOUT EASY LAPTOP FINDER(ELF)
 Buy & Sell is a convenient destination for people to discover, buy and sell laptops. From the Feedpage, users can select to view listings. There is also a nice scroll at the top of the screen showing the most recent featured products.<br />
 Users are able to filter their results by laptop price, size, Memory etc. and also filter by price, listing items from High to Low or Low to High.<br />
 Users have the ability to add items to their favorites allowing them to come back at a later date when they are ready to purchase.<br />
