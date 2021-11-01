@@ -16,18 +16,20 @@ Once an item has been sold the seller can go to their profiles page and mark an 
 - Node, Express, EJS, PSQL on the server-side
 
 ## Entity Relationship Diagram
-!["Screenshot of Edit page"](https://github.com/ValEmpire/elf/blob/public/images/ER Diagram.png)
+
+!["Screenshot of ER Diagram"](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/ER%20Diagram.png)
 
 ## Final Project
-!["Screenshot of Edit page"](https://github.com/ValEmpire/elf/blob/public/images/home1.png)
-!["Screenshot of NewUrl page"](https://github.com/ValEmpire/elf/blob/public/images/home2.png)
-!["Screenshot of Login page"](https://github.com/ValEmpire/elf/blob/public/images/about.png)
-!["Screenshot of Register Page"](https://github.com/ValEmpire/elf/blob/public/images/feed.png)
-!["Screenshot of Urls Page](https://github.com/ValEmpire/elf/blob/public/images/dashboard.png)
-!["Screenshot of Urls Page](https://github.com/ValEmpire/elf/blob/public/images/favorite.png)
-!["Screenshot of Urls Page](https://github.com/ValEmpire/elf/blob/public/images/login.png)
-!["Screenshot of Urls Page](https://github.com/ValEmpire/elf/blob/public/images/message.png)
-!["Screenshot of Urls Page](https://github.com/ValEmpire/elf/blob/public/images/signup.png)
+
+!["Screenshot of Homepage Page]()
+!["Screenshot of Homepage Page]()
+!["Screenshot of About page"](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/about.png)
+!["Screenshot of Feed Page"](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/feed.png)
+!["Screenshot of Dashboard page"](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/dashboard.png)
+!["Screenshot of Favorite Page"](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/favorite.png)
+!["Screenshot of Login Page](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/login.png)
+!["Screenshot of Message Page](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/message.png)
+!["Screenshot of Signup Page](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/signup.png)
 
 ## Getting Started
 
