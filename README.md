@@ -21,8 +21,8 @@ Once an item has been sold the seller can go to their profiles page and mark an 
 
 ## Final Project
 
-!["Screenshot of Homepage Page]()
-!["Screenshot of Homepage Page]()
+!["Screenshot of Homepage Page](https://github.com/ValEmpire/elf/blob/64a1f698f586afbb010015e44ec6ded5270d7b41/public/images/home1.png)
+!["Screenshot of Homepage Page](https://github.com/ValEmpire/elf/blob/64a1f698f586afbb010015e44ec6ded5270d7b41/public/images/home2.png)
 !["Screenshot of About page"](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/about.png)
 !["Screenshot of Feed Page"](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/feed.png)
 !["Screenshot of Dashboard page"](https://github.com/ValEmpire/elf/blob/422b748fa8b58a6e21cd8c50c02a63075fab1180/public/images/dashboard.png)
