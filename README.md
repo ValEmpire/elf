@@ -1,16 +1,21 @@
-LHL Node Skeleton
+BUY AND SELL WEBSITE
 =========
 
-## Project Setup
+## About EASY LAPTOP FINDER(ELF)
+Buy & Sell is a convenient destination for people to discover, buy and sell laptops. From the Feedpage, users can select to view listings. There is also a nice scroll at the top of the screen showing the most recent featured products.<br />
+Users are able to filter their results by laptop price, size, Memory etc. and also filter by price, listing items from High to Low or Low to High.<br />
+Users have the ability to add items to their favorites allowing them to come back at a later date when they are ready to purchase.<br />
+If interested in an item users can message the seller. The negotiations can continue via the buyer and sellers personal email.<br />
+Once an item has been sold the seller can go to their profiles page and mark an item as sold. A seller is able to:
+- View active listings (includes marking an item as sold and deleting an active listing)
+- View all listings (includes both active and sold items)
+- Create a new listing
 
-The following steps are only for _one_ of the group members to perform.
+## Project Stack
+- HTML, SASS, jQuery and AJAX on the front end
+- Node, Express, EJS, PSQL on the server-side
 
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
-
+## Final Project
 
 ## Getting Started
 
@@ -41,3 +46,18 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- Express
+- Body-parser
+- Chalk
+- Dotenv
+- EJS
+- Morgan
+- Node-sass-middleware
+
+## Dependencies
+- Nodemon (or Live-server)
+
+## Developers Team
+- Neha Yadav
+- Arcival Palma
+- Valeriy Nehovora
