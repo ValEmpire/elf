@@ -15,7 +15,19 @@ Once an item has been sold the seller can go to their profiles page and mark an 
 - HTML, SASS, jQuery and AJAX on the front end
 - Node, Express, EJS, PSQL on the server-side
 
+## Entity Relationship Diagram
+!["Screenshot of Edit page"](https://github.com/ValEmpire/elf/blob/public/images/ER Diagram.png)
+
 ## Final Project
+!["Screenshot of Edit page"](https://github.com/ValEmpire/elf/blob/public/images/home1.png)
+!["Screenshot of NewUrl page"](https://github.com/ValEmpire/elf/blob/public/images/home2.png)
+!["Screenshot of Login page"](https://github.com/ValEmpire/elf/blob/public/images/about.png)
+!["Screenshot of Register Page"](https://github.com/ValEmpire/elf/blob/public/images/feed.png)
+!["Screenshot of Urls Page](https://github.com/ValEmpire/elf/blob/public/images/dashboard.png)
+!["Screenshot of Urls Page](https://github.com/ValEmpire/elf/blob/public/images/favorite.png)
+!["Screenshot of Urls Page](https://github.com/ValEmpire/elf/blob/public/images/login.png)
+!["Screenshot of Urls Page](https://github.com/ValEmpire/elf/blob/public/images/message.png)
+!["Screenshot of Urls Page](https://github.com/ValEmpire/elf/blob/public/images/signup.png)
 
 ## Getting Started
 
@@ -58,6 +70,6 @@ Once an item has been sold the seller can go to their profiles page and mark an 
 - Nodemon (or Live-server)
 
 ## Developers Team
-- Neha Yadav
 - Arcival Palma
+- Neha Yadav
 - Valeriy Nehovora
